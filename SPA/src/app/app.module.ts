@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
+import { GalleryComponent } from './gallery/gallery.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    GalleryComponent,
 
   ],
   imports: [
