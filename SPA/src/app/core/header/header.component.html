@@ -15,10 +15,12 @@
       <nav>
         <ul>
           <li><a href="">Home</a></li>
-          <li><a href="">Coures</a></li>
           <li><a href="">Gallery</a></li>
-          <li><a href="">Login</a></li>
-          <li><a href="">Register</a></li>
+          <li *ngIf="guest"><a href="">Login</a></li>
+          <li *ngIf="guest"><a href="">Register</a></li>
+          <li *ngIf="user"><a href="">Coures</a></li>
+          <li *ngIf="user"><a href="">Coaches</a></li>
+          <li *ngIf="user"><a href="">Logout</a></li>
         </ul>
       </nav>
     </div>
