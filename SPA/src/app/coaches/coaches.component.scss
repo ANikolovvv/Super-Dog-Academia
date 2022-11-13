@@ -1,0 +1,84 @@
+body {
+  scroll-behavior: smooth;
+}
+.trainer h1 {
+  text-align: center;
+  color: #0284c7;
+}
+h2 {
+  color: #0284c7;
+}
+.trainer article {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: baseline;
+  gap: 20px;
+}
+.couch {
+  display: flex;
+  flex-direction: row;
+  border-style: solid;
+  border-color: #0284c7;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 55vh;
+}
+.div-img {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+.div-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.couch .art {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 5px;
+  width: 50%;
+}
+.art p {
+  padding: 5px 10px;
+}
+.hidden {
+  background: linear-gradient(#00ff04, #09aad3);
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  right: 2rem;
+  bottom: 2rem;
+  text-align: center;
+  color: #09aad3;
+  align-items: center;
+}
+.show {
+  transition: 0.2s;
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  right: 2rem;
+  bottom: 2rem;
+  text-align: center;
+  color: #ffe1e1;
+  align-items: center;
+}
+.show > i {
+  color: black;
+}
+i {
+  margin-top: 5px;
+  font-size: 32px;
+  justify-content: center;
+  color: white;
+}
