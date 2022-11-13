@@ -1,0 +1,21 @@
+<main >
+    <section class="trainer">
+        <div>
+            <h1>Coaches</h1>
+        </div>
+        <article  (scroll)="divScroll($event)">
+            <div class="couch" *ngFor="let trainer of coaches" >
+               <div class="div-img">
+                <img src={{trainer.imageUrl}} alt="coauch" >
+               </div>
+               <article class="art">
+                    <h2>{{trainer.name}}</h2>
+                    <p>{{trainer.description}}</p>
+                    <p>Experience: {{trainer.year}}</p>
+               </article>
+            </div>
+        </article>
+        
+    </section>
+    <a href="#"  class={{btn}}><i class="fa-solid fa-arrow-up"></i></a>
+</main>
