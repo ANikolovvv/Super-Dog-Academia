@@ -1,8 +1,8 @@
 const router = require("express").Router();
-const mainController = require("../controllers/mainController");
+const authController = require("../controllers/authController");
 const trainerControler=require("../controllers/dataController")
 
-router.use("/api/", mainController);
+router.use("/api/auth", authController);
 router.use("/api/trainer", trainerControler);
 
 router.use("*", (req, res) => {});
