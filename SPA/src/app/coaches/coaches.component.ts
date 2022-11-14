@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { apiServer } from '../app-service';
 import { ICoaches } from '../interfaces/coaches';
 import { trigger, transition, style, animate } from '@angular/animations';
@@ -6,24 +6,26 @@ import { trigger, transition, style, animate } from '@angular/animations';
 const enterTransition = transition(':enter', [
   style({
     opacity: 0,
-   
+    background: ('blue'),
+
   }),
   animate('1s ease-in', style({
-    opacity: 1,
+    opacity: 2,
     background: ('#00ff04'),
-    
+
   }))
 ])
 const exitTransition = transition(':leave', [
   style({
-    opacity: 1,
-    background: ('red'),
-    
+    opacity: 2,
+    background: ('blue'),
+
 
   }),
   animate("1s ease-out", style({
     opacity: 0,
-    
+    background: ('black'),
+
   }))
 ])
 const loader = trigger('loader', [enterTransition]);
@@ -33,22 +35,22 @@ const loaderOut = trigger('loaderOut', [exitTransition]);
   selector: 'app-coaches',
   templateUrl: './coaches.component.html',
   styleUrls: ['./coaches.component.scss'],
-  animations:[loader,loaderOut]
+  animations: [loader, loaderOut]
 })
 export class CoachesComponent implements OnInit {
   coaches: ICoaches[] | null = null;
   errors = false;
-  btn = false;
-  loading=false;
+  btn = true;
+  loading = false;
 
   constructor(private apiServer: apiServer) { }
-  animation(){
-    this.loading=!this.loading;
+  animation() {
+    this.loading = !this.loading;
   }
   ngOnInit(): void {
     this.apiServer.loadCoaches().subscribe({
       next: (value) => {
-        
+
         this.coaches = value;
 
       },
@@ -58,15 +60,13 @@ export class CoachesComponent implements OnInit {
       }
     })
   }
-  @HostListener('window:scroll', ['$event'])
- 
+  onClick():void {
+    this.btn = false;
+    setTimeout(() => {
+      this.btn = true
+    }, 1000)
 
-  divScroll(e: any) {
-     this.btn=true;
-     setTimeout(() => {
-     this.btn = false;
-   }, 8000)
-   
+
   }
 
 
