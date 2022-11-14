@@ -51,7 +51,7 @@ h2 {
 .art p {
   padding: 5px 10px;
 }
-.hidden {
+.show {
   background: linear-gradient(#00ff04, #09aad3);
   position: fixed;
   width: 50px;
@@ -62,23 +62,19 @@ h2 {
   color: #09aad3;
   align-items: center;
 }
-.show {
-  transition: 0.2s;
-  position: fixed;
-  width: 50px;
-  height: 50px;
-  right: 2rem;
-  bottom: 2rem;
-  text-align: center;
-  color: #ffe1e1;
-  align-items: center;
-}
-.show > i {
-  color: black;
-}
+
+
 i {
   margin-top: 5px;
   font-size: 32px;
   justify-content: center;
   color: white;
 }
+.error{
+  font-size: 24px;
+  text-align: center;
+  font-weight: bolder;
+  color: red;
+  letter-spacing: 2px;
+}
+
