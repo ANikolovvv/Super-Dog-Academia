@@ -6,7 +6,7 @@
         <div class="error" *ngIf="errors" >Error loading coaches!</div>
 
          <div class="loader" *ngIf="loading">Loading....</div>
-        <article  (scroll)="divScroll($event)">
+        <article >
             <div class="couch"  *ngFor="let trainer of coaches" >
                <div class="div-img">
                 <img src={{trainer.imageUrl}} alt="coauch" >
@@ -20,5 +20,5 @@
         </article>
         
     </section>
-    <a href="#" *ngIf="btn" @loader @loaderOut class="show"><i class="fa-solid fa-arrow-up"></i></a>
+    <a href="#"(click)="onClick()" *ngIf="btn" @loader @loaderOut class="show"><i class="fa-solid fa-arrow-up"></i></a>
 </main>
