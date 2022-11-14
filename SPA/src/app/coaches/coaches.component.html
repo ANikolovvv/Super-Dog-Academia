@@ -3,8 +3,11 @@
         <div>
             <h1>Coaches</h1>
         </div>
+        <div class="error" *ngIf="errors" >Error loading coaches!</div>
+
+         <div class="loader" *ngIf="loading">Loading....</div>
         <article  (scroll)="divScroll($event)">
-            <div class="couch" *ngFor="let trainer of coaches" >
+            <div class="couch"  *ngFor="let trainer of coaches" >
                <div class="div-img">
                 <img src={{trainer.imageUrl}} alt="coauch" >
                </div>
@@ -17,5 +20,5 @@
         </article>
         
     </section>
-    <a href="#"  class={{btn}}><i class="fa-solid fa-arrow-up"></i></a>
+    <a href="#" *ngIf="btn" @loader @loaderOut class="show"><i class="fa-solid fa-arrow-up"></i></a>
 </main>
