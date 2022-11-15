@@ -41,21 +41,21 @@ export class CoachesComponent implements OnInit {
   coaches: ICoaches[] | null = null;
   errors = false;
   btn = true;
-  loading = false;
+  loading = true;
 
   constructor(private apiServer: apiServer) { }
   animation() {
-    this.loading = !this.loading;
+    
   }
   ngOnInit(): void {
     this.apiServer.loadCoaches().subscribe({
       next: (value) => {
-
+        this.loading=!this.loading;
         this.coaches = value;
 
       },
       error: (err) => {
-        this.errors = true;
+        this.errors = !this.loading;
         console.error(err);
       }
     })

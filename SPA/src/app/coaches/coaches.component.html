@@ -4,8 +4,10 @@
             <h1>Coaches</h1>
         </div>
         <div class="error" *ngIf="errors" >Error loading coaches!</div>
-
-         <div class="loader" *ngIf="loading">Loading....</div>
+        
+         <div  *ngIf="loading">
+            <app-loader></app-loader>
+         </div>
         <article >
             <div class="couch"  *ngFor="let trainer of coaches" >
                <div class="div-img">
