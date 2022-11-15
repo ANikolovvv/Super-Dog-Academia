@@ -14,13 +14,13 @@
     <div class="nav">
       <nav>
         <ul>
-          <li><a href="">Home</a></li>
-          <li><a href="">Gallery</a></li>
-          <li *ngIf="guest"><a href="">Login</a></li>
-          <li *ngIf="guest"><a href="">Register</a></li>
-          <li *ngIf="user"><a href="">Courses</a></li>
-          <li *ngIf="user"><a href="">Coaches</a></li>
-          <li *ngIf="user"><a href="">Logout</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/gallery">Gallery</a></li>
+          <li *ngIf="guest"><a href="/auth/login">Login</a></li>
+          <li *ngIf="guest"><a href="/auth/register">Register</a></li>
+          <li *ngIf="user"><a href="/courses">Courses</a></li>
+          <li *ngIf="user"><a href="/coaches">Coaches</a></li>
+          <li *ngIf="user"><a href="/auth/logout">Logout</a></li>
         </ul>
       </nav>
     </div>
