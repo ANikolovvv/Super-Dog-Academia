@@ -10,10 +10,14 @@ import { HomeComponent } from './home/home.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { CoachesComponent } from './coaches/coaches.component';
 
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
+
 import { OrderComponent } from './order/order.component';
 import { CoursesComponent } from './courses/courses.component';
+import { LogoutComponent } from './auth/logout/logout.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RouterModule } from '@angular/router';
+import { routes } from './app-routing.module';
 
 
 @NgModule({
@@ -22,17 +26,20 @@ import { CoursesComponent } from './courses/courses.component';
     HomeComponent,
     GalleryComponent,
     CoachesComponent,
-    RegisterComponent,
-    LoginComponent,
     OrderComponent,
     CoursesComponent,
+    LogoutComponent,
+    RegisterComponent,
+    LoginComponent
 
   ],
   imports: [
     BrowserModule,
     CoreModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule.forRoot(routes)
+   
 
   ],
   providers: [],
