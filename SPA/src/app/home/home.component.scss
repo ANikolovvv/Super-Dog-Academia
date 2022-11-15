@@ -32,11 +32,14 @@
 
 }
 .text button{
-    margin-top: 10px;
-    padding: 10px 40px;
-    letter-spacing: 2px;
-    background-color: #bae6fd;
-    border: white;
+    padding: 10px 30px;
+    background-color: white;
+    border: solid 2px #0284c7;
     border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+    font-size: 16px;
+    color: #0284c7;
+    letter-spacing: 1px;
+    font-weight: bolder;
 
 }
