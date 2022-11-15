@@ -7,13 +7,15 @@ body {
   font-family: "Roboto", sans-serif;
 }
 main {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 40px;
   padding: 0 20px;
   background-color: #f6f4f2;
 }
 h1 {
-  color: #67e8f9;
+  color: #0284c7;
+  letter-spacing: 2px;
+  font-weight: bolder;
+  font-size: 24px;
 }
 p {
   font-weight: bold;
@@ -25,4 +27,20 @@ p {
   color: #0284c7;
   font-size: 24px;
   letter-spacing: 2px;
+}
+input{
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 16px;
+  border: solid 2px #0284c7;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+}
+label{
+  font-weight: bolder;
+  font-size: 24px;
+  letter-spacing: 1px;
+  color: #0284c7;
 }
