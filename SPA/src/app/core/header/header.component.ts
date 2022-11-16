@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   imageAlt = 'dog';
   guest=true;
-  user=false;
+  user=true;
   constructor() { }
 
   ngOnInit(): void {
