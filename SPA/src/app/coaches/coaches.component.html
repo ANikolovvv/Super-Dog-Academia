@@ -1,5 +1,6 @@
-<main >
-    <section class="trainer">
+
+<main #main>
+    <section class="trainer"  >
         <div>
             <h1>Coaches</h1>
         </div>
@@ -22,5 +23,5 @@
         </article>
         
     </section>
-    <a href="#"(click)="onClick()" *ngIf="btn" @loader @loaderOut class="show"><i class="fa-solid fa-arrow-up"></i></a>
+    <button (click)="onClick(main)" *ngIf="btn" @loader @loaderOut class="show"><i class="fa-solid fa-arrow-up"></i></button>
 </main>
