@@ -1,1 +1,27 @@
-<p>courses works!</p>
+<main>
+  <h1 id="title">Our Courses</h1>
+  <section class="course">
+    <div class="error" *ngIf="errors" >Error loading coaches!</div>
+        
+    <div  *ngIf="loading">
+       <app-loader></app-loader>
+    </div>
+    <article>
+      <div class="card" *ngFor="let course of courses">
+        <div class="card-img">
+          <img src="{{ course.imageUrl }}" alt="course" />
+        </div>
+        <article class="desc">
+          <h2>Title: {{ course.title }} course.</h2>
+          <h5>Price: {{ course.price }}$</h5>
+          <p class="text">Description: {{ course.desc }}</p>
+          <ul class="list">
+            <li *ngFor="let t of course.training">{{ t }}</li>
+          </ul>
+
+          <button class="sign">SIGN UP</button>
+        </article>
+      </div>
+    </article>
+  </section>
+</main>
