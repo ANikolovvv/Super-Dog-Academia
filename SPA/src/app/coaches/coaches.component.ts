@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { DOCUMENT } from "@angular/common";
 import { apiServer } from '../app-service';
 import { ICoaches } from '../interfaces/coaches';
 import { trigger, transition, style, animate } from '@angular/animations';
@@ -42,15 +43,17 @@ export class CoachesComponent implements OnInit {
   errors = false;
   btn = true;
   loading = true;
+  windowScrolled = false;
 
-  constructor(private apiServer: apiServer) { }
+  constructor(private apiServer: apiServer,
+    @Inject(DOCUMENT) private document: Document) { }
   animation() {
-    
+
   }
   ngOnInit(): void {
     this.apiServer.loadCoaches().subscribe({
       next: (value) => {
-        this.loading=!this.loading;
+        this.loading = !this.loading;
         this.coaches = value;
 
       },
@@ -59,15 +62,19 @@ export class CoachesComponent implements OnInit {
         console.error(err);
       }
     })
+
   }
-  onClick():void {
+  onClick(target: any): void {
     this.btn = false;
     setTimeout(() => {
       this.btn = true
     }, 1000)
+    this.document.body.scrollIntoView();
+    //target.onClick = -2;
 
 
   }
+
 
 
 }
