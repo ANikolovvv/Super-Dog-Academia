@@ -1,10 +1,10 @@
 <main>
   <h1 id="title">Our Courses</h1>
   <section class="course">
-    <div class="error" *ngIf="errors" >Error loading coaches!</div>
-        
-    <div  *ngIf="loading">
-       <app-loader></app-loader>
+    <div class="error" *ngIf="errors">Error loading coaches!</div>
+
+    <div *ngIf="loading">
+      <app-loader></app-loader>
     </div>
     <article>
       <div class="card" *ngFor="let course of courses">
@@ -19,7 +19,13 @@
             <li *ngFor="let t of course.training">{{ t }}</li>
           </ul>
 
-          <a [routerLink]="['/order',course._id]" class="sign">SIGN UP</a>
+          <a
+            [routerLink]="['/order', course._id]"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            class="sign"
+            >SIGN UP</a
+          >
         </article>
       </div>
     </article>
