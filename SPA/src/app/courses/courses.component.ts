@@ -21,6 +21,7 @@ export class CoursesComponent implements OnInit {
       next: (value) => {
         this.loading = !this.loading;
         this.courses = value;
+        console.log(this.courses)
 
       },
       error: (err) => {

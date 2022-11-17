@@ -19,7 +19,7 @@
             <li *ngFor="let t of course.training">{{ t }}</li>
           </ul>
 
-          <a href="" class="sign">SIGN UP</a>
+          <a [routerLink]="['/order',course._id]" class="sign">SIGN UP</a>
         </article>
       </div>
     </article>

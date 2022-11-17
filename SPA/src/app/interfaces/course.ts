@@ -1,4 +1,4 @@
-export interface ICourses {
+export interface ICourse {
     _id: string,
     title: string,
     training: string[],

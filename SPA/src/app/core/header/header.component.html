@@ -1,7 +1,7 @@
 <header #header class="header">
   <div class="container-head">
     <div>
-      <a href="/">
+      <a routerLink="/">
         <img
           class="logo"
           type="image"
@@ -14,24 +14,24 @@
     <div class="nav">
       <nav>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/gallery">Gallery</a></li>
-          <li *ngIf="guest"><a href="/auth/login">Login</a></li>
-          <li *ngIf="guest"><a href="/auth/register">Register</a></li>
-          <li *ngIf="user"><a href="/courses">Courses</a></li>
-          <li *ngIf="user"><a href="/coaches">Coaches</a></li>
-          <li *ngIf="user"><a href="/auth/logout">Logout</a></li>
+          <li><a routerLink="/">Home</a></li>
+          <li><a routerLink="/gallery">Gallery</a></li>
+          <li *ngIf="guest"><a routerLink="/auth/login">Login</a></li>
+          <li *ngIf="guest"><a routerLink="/auth/register">Register</a></li>
+          <li *ngIf="user"><a routerLink="/courses">Courses</a></li>
+          <li *ngIf="user"><a routerLink="/coaches">Coaches</a></li>
+          <li *ngIf="user"><a routerLink="/auth/logout">Logout</a></li>
         </ul>
       </nav>
     </div>
     <div class="icons">
-      <a href="">
+      <a routerLink="">
         <i class="fa-brands fa-square-instagram"></i>
       </a>
-      <a href="">
+      <a routerLink="">
         <i class="fa-brands fa-square-facebook"></i>
       </a>
-      <a href="">
+      <a routerLink="">
         <i class="fa-brands fa-square-twitter"></i>
       </a>
     </div>

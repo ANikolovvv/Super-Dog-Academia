@@ -1,5 +1,5 @@
 const router = require("express").Router();
-
+const preload = require("../middlewares/preload");
 const api = require("../services/trainerServices");
 
 router.get("/", async (req, res) => {
@@ -26,7 +26,7 @@ router.post("/", async (req, res) => {
     console.log(error);
   }
 });
-router.get("/cours", async (req, res) => {
+router.get("/course", async (req, res) => {
   try {
     let data = await api.getAllCourses();
 
@@ -35,7 +35,7 @@ router.get("/cours", async (req, res) => {
     res.status(400).json({ message: "Bad request" });
   }
 });
-router.post("/cours", async (req, res) => {
+router.post("/course", async (req, res) => {
   const item = {
     title: req.body.title,
     training: req.body.training,
@@ -51,4 +51,8 @@ router.post("/cours", async (req, res) => {
     console.log(error);
   }
 });
+router.get("/course/:id", preload(api), async (req, res) => {
+  res.json(res.locals.item);
+});
+
 module.exports = router;

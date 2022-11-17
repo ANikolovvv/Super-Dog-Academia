@@ -1,7 +1,7 @@
 module.exports = (api) => async (req, res, next) => {
   const id = req.params.id;
 
-  const item = await api.getById(id);
+  const item = await api.getByIdCourses(id);
   console.log(item,'erererer details')
   if (item) {
     res.locals.item = item;

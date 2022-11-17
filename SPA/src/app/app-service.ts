@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { ICoaches } from './interfaces/coaches';
 import { ICourses } from './interfaces/courses';
+import { ICourse } from './interfaces/course';
 
 
 const url = environment.url;
@@ -18,7 +19,10 @@ export class apiServer {
         return this.httpClient.get<ICoaches[]>(`${url}/trainer`);
     }
     loadCourses(){
-        return this.httpClient.get<ICourses[]>(`${url}/trainer/cours`)
+        return this.httpClient.get<ICourses[]>(`${url}/trainer/course`)
+    }
+    getCourse(id:string){
+        return this.httpClient.get<ICourse[]>(`${url}/trainer/course/${id}`)
     }
    
 }
