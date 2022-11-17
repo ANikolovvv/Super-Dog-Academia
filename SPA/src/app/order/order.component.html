@@ -1,2 +1,41 @@
-<p>{{course}}</p>
-<p>Work iujhfgjhfg</p>
+<main class="container">
+  <article class="order">
+    <div class="dog-img"><img src="{{ course?.imageUrl }}" alt="" /></div>
+
+    <form action="" class="form-order">
+      <h1>Course: {{ course?.title }}</h1>
+      <section class="all">
+        <div class="div">
+          <label class="label" for="email">Email </label>
+          <input type="email" id="email" placeholder="email" />
+        </div>
+        <div class="div">
+          <label class="label" for="tel">Phone</label>
+          <input type="text" id="tel" placeholder=" 0885554449" />
+        </div>
+        <div class="div">
+          <label class="label" for="name">Name</label>
+          <input type="text" id="name" placeholder="Dog's name" />
+        </div>
+        <div class="div">
+          <label class="label" for="Breed">Breed</label>
+          <input type="text" id="breed" placeholder="Breed" />
+        </div>
+        <div class="div">
+          <label class="label age" for="age">Age</label>
+          <input type="text" id="age" placeholder="Age" />
+        </div>
+        <div class="div">
+          <label class="l-gender" for="gender">Gender</label>
+          <select class="option" id="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+      </section>
+      <div class="submit">
+        <button type="submit">Sing for course</button>
+      </div>
+    </form>
+  </article>
+</main>
