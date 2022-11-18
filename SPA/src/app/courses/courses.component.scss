@@ -23,9 +23,8 @@ h2 {
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
   width: 70%;
-  height: 65vh;
-
-  margin: 0px 20px 20px 20px;
+  height: 62vh;
+  margin: 0px 0px 20px 20px;
 }
 .card-img {
   margin: 0 auto;
@@ -39,7 +38,7 @@ h2 {
 .card-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
   border-radius: 5px;
 }
 .card .desc {
@@ -83,8 +82,12 @@ h5{
     border: solid 2px #0284c7;
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
-    font-size: 10px;
+    font-size: 16px;
     color: #0284c7;
     letter-spacing: 1px;
     font-weight: bolder;
+}
+.sign:hover{
+  background-color: #0284c7;
+  color: black;
 }
