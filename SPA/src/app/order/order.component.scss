@@ -86,23 +86,27 @@ option {
   border: solid 2px #0284c7;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
-  font-size: 12px;
+  font-size: 16px;
   color: #0284c7;
   letter-spacing: 1px;
   font-weight: bolder;
 }
+.submit button:hover{
+  background-color: #0284c7;
+  color: black;
+}
 input {
   font-weight: bolder;
-  padding: 5px 5px;
+  padding: 10px 10px;
   text-align: center;
-  font-size: 12px;
+  font-size: 14px;
   border: solid 2px #0284c7;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
 }
 label{
     font-weight: bolder;
-    font-size: 16px;
+    font-size: 18px;
     letter-spacing: 1px;
     color: #0284c7;
 }
