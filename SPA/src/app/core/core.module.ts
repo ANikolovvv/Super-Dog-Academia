@@ -4,7 +4,8 @@ import { HeaderComponent } from './header/header.component';
 import {FooterComponent} from "./footer/footer.component";
 import { RouterModule} from '@angular/router';
 import {routes} from "../app-routing.module";
-import { LoaderComponent } from './loader/loader.component'
+import { LoaderComponent } from './loader/loader.component';
+import { ButtonUpComponent } from './button-up/button-up.component'
 
 
 
@@ -13,7 +14,8 @@ import { LoaderComponent } from './loader/loader.component'
   declarations: [
     HeaderComponent,
     FooterComponent,
-    LoaderComponent
+    LoaderComponent,
+    ButtonUpComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { LoaderComponent } from './loader/loader.component'
     HeaderComponent,
     FooterComponent,
     RouterModule,
-    LoaderComponent
+    LoaderComponent,
+    ButtonUpComponent
     
   ]
 })
