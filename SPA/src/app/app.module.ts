@@ -13,11 +13,12 @@ import { CoachesComponent } from './coaches/coaches.component';
 
 import { OrderComponent } from './order/order.component';
 import { CoursesComponent } from './courses/courses.component';
-import { LogoutComponent } from './auth/logout/logout.component';
-import { RegisterComponent } from './auth/register/register.component';
-import { LoginComponent } from './auth/login/login.component';
 import { RouterModule } from '@angular/router';
 import { routes } from './app-routing.module';
+import { AuthModule } from './auth/auth.module';
+import { apiServer } from './app-service';
+import {  AuthGuard } from './auth/guards/authGuard';
+
 
 
 @NgModule({
@@ -28,9 +29,8 @@ import { routes } from './app-routing.module';
     CoachesComponent,
     OrderComponent,
     CoursesComponent,
-    LogoutComponent,
-    RegisterComponent,
-    LoginComponent
+    
+   
 
   ],
   imports: [
@@ -38,11 +38,12 @@ import { routes } from './app-routing.module';
     CoreModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    AuthModule
    
 
   ],
-  providers: [],
+  providers: [apiServer,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
