@@ -1,6 +1,7 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { DOCUMENT } from "@angular/common";
+import { Component, OnInit, } from '@angular/core';
+
 import { apiServer } from '../app-service';
+
 import { ICourses } from '../interfaces/courses';
 
 @Component({
@@ -13,8 +14,8 @@ export class CoursesComponent implements OnInit {
   errors = false;
   btn = true;
   loading = true;
-  constructor(private apiServer: apiServer, @Inject(DOCUMENT)
-  private document: Document) { }
+  constructor(private apiServer: apiServer
+  ) { }
 
   ngOnInit(): void {
     this.apiServer.loadCourses().subscribe({
@@ -29,6 +30,7 @@ export class CoursesComponent implements OnInit {
         console.error(err);
       }
     })
+
 
   }
 
