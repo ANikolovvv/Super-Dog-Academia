@@ -8,19 +8,19 @@
        
       <div class="input">
         <label for="email">Email</label>
-        <input type="text" id="email" placeholder="dog@gmail.com" />
+        <input #email type="text" id="email" placeholder="dog@gmail.com" />
       </div>
       <div class="input">
         <label for="password">Password</label>
-        <input type="password" id="password" placeholder="*****" />
+        <input #password type="password" id="password" placeholder="*****" />
       </div>
       <div class="input">
         <label for="re-pass">Repeat Password</label>
-        <input type="password" id="re-pass" placeholder="*****" />
+        <input #repass type="password" id="re-pass" placeholder="*****" />
       </div>
 
       <div class="submit" >
-        <button  type="submit">Register</button>
+        <button (click)="register(email.value,password.value)" type="submit">Register</button>
       </div>
     </form>
   </section>
