@@ -14,13 +14,13 @@
     <div class="nav">
       <nav>
         <ul>
-          <li><a routerLink="/">Home</a></li>
+          <li><a routerLink="/home">Home</a></li>
           <li><a routerLink="/gallery">Gallery</a></li>
-          <li *ngIf="guest"><a routerLink="/auth/login">Login</a></li>
-          <li *ngIf="guest"><a routerLink="/auth/register">Register</a></li>
-          <li *ngIf="user"><a routerLink="/courses">Courses</a></li>
-          <li *ngIf="user"><a routerLink="/coaches">Coaches</a></li>
-          <li *ngIf="user"><a routerLink="/auth/logout">Logout</a></li>
+          <li *ngIf="!isLogged"><a routerLink="/auth/login">Login</a></li>
+          <li *ngIf="!isLogged"><a routerLink="/auth/register">Register</a></li>
+          <li *ngIf="isLogged"><a routerLink="/courses">Courses</a></li>
+          <li *ngIf="isLogged"><a routerLink="/coaches">Coaches</a></li>
+          <li *ngIf="isLogged" ><a (click)="logout()">Logout</a></li>
         </ul>
       </nav>
     </div>
