@@ -28,8 +28,7 @@ export class OrderComponent implements OnInit {
       next: (value: any) => {
         this.loading = !this.loading;
         this.course = value;
-        console.log()
-
+      
       },
       error: (err) => {
         this.errors = !this.loading;
