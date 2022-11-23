@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { apiServer } from '../app-service';
 import { IOrder } from '../interfaces/course';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-order',
@@ -16,19 +17,17 @@ export class OrderComponent implements OnInit {
   id: string = '';
   constructor(private apiServer: apiServer,
     private route: ActivatedRoute) { }
-  // _id="6374e71d3495fbdf000badfe";
-
 
   ngOnInit(): void {
     this.route.params.subscribe(param => {
       this.id = param['id']
     })
-    console.log(this.id, 'paramsss78')
+
     this.apiServer.getCourse(this.id).subscribe({
       next: (value: any) => {
         this.loading = !this.loading;
         this.course = value;
-      
+
       },
       error: (err) => {
         this.errors = !this.loading;
@@ -36,5 +35,12 @@ export class OrderComponent implements OnInit {
       }
     })
   }
-
+  nandlerFormOrder(form: NgForm) {
+    const value: {
+      email: string, tel: number,
+      name: string, breed: string,
+      age: number, gender: string
+    } = form.value;
+    console.log(value)
+  }
 }
