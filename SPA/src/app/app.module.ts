@@ -18,6 +18,7 @@ import { routes } from './app-routing.module';
 import { AuthModule } from './auth/auth.module';
 import { apiServer } from './app-service';
 import {  AuthGuard } from './auth/guards/authGuard';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -39,7 +40,8 @@ import {  AuthGuard } from './auth/guards/authGuard';
     HttpClientModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
-    AuthModule
+    AuthModule,
+    FormsModule
    
 
   ],
