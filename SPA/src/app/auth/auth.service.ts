@@ -21,7 +21,7 @@ export class AuthService {
       console.log('is user', this.user, local)
     } catch (error) {
       this.user = undefined;
-      console.log(error)
+      //console.log(error)
     }
   }
 
