@@ -1,24 +1,25 @@
-<main>
+<ng-container>
     <section class="form">
       <div class="img">
         <img src="../../../assets/trainer2.jpg" alt="trainer" />
       </div>
-      <form class="fild" action="#">
+      <form class="fild" #loginForm="ngForm" action="#" (ngSubmit)="handleLogin(loginForm)">
         <h1>Login Form</h1>
          
         <div class="input">
           <label for="email">Email</label>
-          <input #email type="text" id="email" placeholder="dog@gmail.com" />
+          <input  type="text" id="email" ngModel name="email" placeholder="dog@gmail.com" />
         </div>
         <div class="input">
           <label for="password">Password</label>
-          <input #password type="password" id="password" placeholder="*****" />
+          <input type="password" id="password" placeholder="*****" ngModel name="password" />
         </div>
       
         <div class="submit" >
-          <button (click)="login(email.value,password.value)"  type="submit">Login</button>
+          <button  type="submit">Login</button>
         </div>
       </form>
     </section>
-  </main>
+    {{loginForm.value | json }}
+  </ng-container>
   
