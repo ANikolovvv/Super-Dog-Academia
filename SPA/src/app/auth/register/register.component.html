@@ -3,25 +3,26 @@
     <div class="img">
       <img src="../../../assets/Sean-1.jpg" alt="trainer" />
     </div>
-    <form class="fild" action="#">
+    <form class="fild" #regForm="ngForm" (ngSubmit)="register(regForm)">
       <h1>Register Form</h1>
        
       <div class="input">
         <label for="email">Email</label>
-        <input #email type="text" id="email" placeholder="dog@gmail.com" />
+        <input  type="text" id="email" placeholder="dog@gmail.com" ngModel name="email"/>
       </div>
       <div class="input">
         <label for="password">Password</label>
-        <input #password type="password" id="password" placeholder="*****" />
+        <input type="password" id="password" placeholder="*****" ngModel name="password"/>
       </div>
       <div class="input">
-        <label for="re-pass">Repeat Password</label>
-        <input #repass type="password" id="re-pass" placeholder="*****" />
+        <label for="repass">Repeat Password</label>
+        <input  type="password" id="repass" placeholder="*****" ngModel name="repass"/>
       </div>
 
       <div class="submit" >
-        <button (click)="register(email.value,password.value)" type="submit">Register</button>
+        <button type="submit">Register</button>
       </div>
     </form>
+    {{regForm.value | json }}
   </section>
 </main>
