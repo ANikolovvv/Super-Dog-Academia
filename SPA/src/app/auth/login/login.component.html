@@ -1,25 +1,63 @@
 <ng-container>
-    <section class="form">
-      <div class="img">
-        <img src="../../../assets/trainer2.jpg" alt="trainer" />
+  <section class="form">
+    <div class="img">
+      <img src="../../../assets/trainer2.jpg" alt="trainer" />
+    </div>
+    <form
+      class="fild"
+      #loginForm="ngForm"
+      action="#"
+      (ngSubmit)="handleLogin(loginForm)"
+    >
+      <h1>Login Form</h1>
+
+      <div class="input">
+        <label for="email">Email</label>
+        <input
+          type="text"
+          #inputEmail="ngModel"
+          required
+          id="email"
+          ngModel
+          [appEmail]="['com', 'bg']"
+          name="email"
+          placeholder="dog@gmail.com"
+        />
+        <ng-container *ngIf="inputEmail.touched"
+          ><p class="error" *ngIf="inputEmail.errors?.['required']">
+            Email is required !
+          </p>
+
+          <p class="error" *ngIf="inputEmail.errors?.['emailValidator']">
+            Email is not valid !
+          </p>
+        </ng-container>
       </div>
-      <form class="fild" #loginForm="ngForm" action="#" (ngSubmit)="handleLogin(loginForm)">
-        <h1>Login Form</h1>
-         
-        <div class="input">
-          <label for="email">Email</label>
-          <input  type="text" id="email" ngModel name="email" placeholder="dog@gmail.com" />
-        </div>
-        <div class="input">
-          <label for="password">Password</label>
-          <input type="password" id="password" placeholder="*****" ngModel name="password" />
-        </div>
-      
-        <div class="submit" >
-          <button  type="submit">Login</button>
-        </div>
-      </form>
-    </section>
-    {{loginForm.value | json }}
-  </ng-container>
-  
+      <div class="input">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          #inputPass="ngModel"
+          id="password"
+          placeholder="*****"
+          ngModel
+          name="password"
+          [minlength]="4"
+          required
+        />
+        <ng-container *ngIf="inputPass.touched">
+          <p class="error" *ngIf="inputPass.errors?.['required']">
+            Password is required !
+          </p>
+          <p class="error" *ngIf="inputPass.errors?.['minlength']">
+            The given password should be at least 4 characters !
+          </p>
+        </ng-container>
+      </div>
+
+      <div class="submit">
+        <button type="submit" [disabled]="loginForm.invalid">Login</button>
+      </div>
+    </form>
+  </section>
+</ng-container>
