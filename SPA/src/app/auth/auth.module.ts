@@ -5,19 +5,23 @@ import { LoginComponent } from './login/login.component';
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './guards/authGuard';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppEmailDirective } from './validators/app-email.directive';
 
 
 @NgModule({
   declarations: [
-   RegisterComponent,
-   LoginComponent
+    RegisterComponent,
+    LoginComponent,
+    AppEmailDirective
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers:[AuthService,AuthGuard]
+  providers: [AuthService, AuthGuard],
+  exports: [AppEmailDirective]
 })
 export class AuthModule { }
