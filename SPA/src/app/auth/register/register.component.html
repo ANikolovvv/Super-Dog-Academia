@@ -3,26 +3,73 @@
     <div class="img">
       <img src="../../../assets/Sean-1.jpg" alt="trainer" />
     </div>
-    <form class="fild" #regForm="ngForm" (ngSubmit)="register(regForm)">
+    <form class="fild" [formGroup]="form" (ngSubmit)="register()">
       <h1>Register Form</h1>
-       
+
       <div class="input">
         <label for="email">Email</label>
-        <input  type="text" id="email" placeholder="dog@gmail.com" ngModel name="email"/>
-      </div>
-      <div class="input">
-        <label for="password">Password</label>
-        <input type="password" id="password" placeholder="*****" ngModel name="password"/>
-      </div>
-      <div class="input">
-        <label for="repass">Repeat Password</label>
-        <input  type="password" id="repass" placeholder="*****" ngModel name="repass"/>
-      </div>
+        <input
+          type="text"
+          id="email"
+          placeholder="dog@gmail.com"
+          formControlName="email"
+        />
+        <ng-container *ngIf="form.get('email')?.touched"
+          ><p class="error" *ngIf="form.get('email')?.errors?.['required']">
+            Email is required !
+          </p>
 
-      <div class="submit" >
+          <p
+            class="error"
+            *ngIf="form.get('email')?.errors?.['emailValidator'] "
+          >
+            Email is not valid !
+          </p>
+        </ng-container>
+      </div>
+      <ng-container formGroupName="pass">
+        <div class="input">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="*****"
+            formControlName="password"
+          />
+          <ng-container *ngIf="form.get('pass')?.get('password')?.touched">
+            <p
+              class="error"
+              *ngIf="form.get('pass')?.get('password')?.errors?.['required']"
+            >
+              Password is required !
+            </p>
+            <p
+              class="error"
+              *ngIf="form.get('pass')?.get('password')?.errors?.['minlength']"
+            >
+              The given password should be at least 4 characters !
+            </p>
+          </ng-container>
+        </div>
+        <div class="input">
+          <label for="rePass">Repeat Password</label>
+          <input
+            type="password"
+            id="repass"
+            placeholder="*****"
+            formControlName="rePass"
+          />
+          <p
+            *ngIf="form.get('pass')?.errors?.['passwordValidator'] && form.get('pass')?.get('rePass')?.touched"
+            class="error"
+          >
+            Repeat Password does not match password!
+          </p>
+        </div>
+      </ng-container>
+      <div class="submit">
         <button type="submit">Register</button>
       </div>
     </form>
-    {{regForm.value | json }}
   </section>
 </main>
