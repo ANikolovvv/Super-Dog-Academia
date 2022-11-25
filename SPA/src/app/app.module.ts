@@ -17,7 +17,7 @@ import { RouterModule } from '@angular/router';
 import { routes } from './app-routing.module';
 import { AuthModule } from './auth/auth.module';
 import { apiServer } from './app-service';
-import {  AuthGuard } from './auth/guards/authGuard';
+import { AuthGuard } from './auth/guards/authGuard';
 import { FormsModule } from '@angular/forms';
 
 
@@ -30,10 +30,8 @@ import { FormsModule } from '@angular/forms';
     CoachesComponent,
     OrderComponent,
     CoursesComponent,
-    
-   
-
   ],
+
   imports: [
     BrowserModule,
     CoreModule,
@@ -42,10 +40,8 @@ import { FormsModule } from '@angular/forms';
     RouterModule.forRoot(routes),
     AuthModule,
     FormsModule
-   
-
   ],
-  providers: [apiServer,AuthGuard],
+  providers: [apiServer, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
