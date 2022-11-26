@@ -12,26 +12,29 @@ import { emailValidator, passwordValidator } from '../validators';
 export class RegisterComponent implements OnInit {
 
   form = this.fb.group({
-    email: ['', [Validators.required,emailValidator(['bg','com'])]],
-    pass:this.fb.group({
-      password:['', [Validators.required, Validators.minLength(4)]],
-      rePass:[]
-    },{
-      validators:[passwordValidator('password','rePass')]
+    email: ['', [Validators.required, emailValidator(['bg', 'com'])]],
+    pass: this.fb.group({
+      password: ['', [Validators.required, Validators.minLength(4)]],
+      rePass: []
+    }, {
+      validators: [passwordValidator('password', 'rePass')]
     })
   })
   constructor(private authService: AuthService, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
-  register(): void {
-     console.log(this.form.value)
-    // if (form.invalid) { return; }
-    // const value: { email: string; password: string; repass: string } = form.value;
-    // this.authService.register(value.email, value.password);
-    // form.setValue({ email: '', password: '', repass: '' });
-    // this.router.navigate(['/courses']);
-    // console.log(value);
+  handlerRegister(): void {
+    console.log(this.form.value, 'reg')
+    if (this.form.invalid) { return; }
+    const email = this.form.value.email;
+    const pass = this.form.value.pass?.password;
+    const rePass = this.form.value.pass?.rePass;
+    this.authService.register(email, pass, rePass);
+    this.form.reset()
+
+    this.router.navigate(['/courses']);
+
 
   }
 }
