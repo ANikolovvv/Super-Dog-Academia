@@ -19,6 +19,7 @@ import { AuthModule } from './auth/auth.module';
 import { apiServer } from './app-service';
 import { AuthGuard } from './auth/guards/authGuard';
 import { FormsModule } from '@angular/forms';
+import { NotFoundComponent } from './core/not-found/not-found.component';
 
 
 
@@ -30,6 +31,7 @@ import { FormsModule } from '@angular/forms';
     CoachesComponent,
     OrderComponent,
     CoursesComponent,
+    NotFoundComponent,
   ],
 
   imports: [
