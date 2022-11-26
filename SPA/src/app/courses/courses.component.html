@@ -12,8 +12,8 @@
           <img src="{{ course.imageUrl }}" alt="course" />
         </div>
         <article class="desc">
-          <h2>Title: {{ course.title }} course.</h2>
-          <h5>Price: {{ course.price }}$</h5>
+          <h1>Title: {{ course.title }} course.</h1>
+          <h2>Price: {{ course.price }}$</h2>
           <p class="text">Description: {{ course.desc }}</p>
           <ul class="list">
             <li *ngFor="let t of course.training">{{ t }}</li>
