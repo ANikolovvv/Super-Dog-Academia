@@ -1,0 +1,32 @@
+#found{
+    background-color: #fff;
+}
+
+.not-title{
+  text-align: center;
+  font-size: 24px;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content:center;
+  flex-direction: row;
+  gap: 20px;
+}
+.not-title i{
+    font-size: 32px;
+    color: #0284c7;
+}
+.open-close-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 65vh;
+   
+}
+.open-close-container .dog{
+  background-color: #f6f4f2;
+    object-fit: fill;
+    color: #fff;
+    opacity: 0.9;
+    border-radius: 5px;
+}
