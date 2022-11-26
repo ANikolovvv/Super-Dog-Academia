@@ -6,6 +6,7 @@ import { CoachesComponent } from './coaches/coaches.component';
 import { CoursesComponent } from './courses/courses.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './core/not-found/not-found.component';
 import { OrderComponent } from './order/order.component';
 
 export const routes: Routes = [
@@ -19,6 +20,8 @@ export const routes: Routes = [
   },
   { path: "coaches", component: CoachesComponent, canActivate: [AuthGuard], data: { authCuard: true, authRedirect: '/auth/login' } },
   { path: "order/:id", component: OrderComponent, canActivate: [AuthGuard], data: { authCuard: true, authRedirect: '/auth/login' } },
+  { path: "not-found", component: NotFoundComponent },
+  { path: "**", redirectTo: '/not-found' }
 
 ];
 
