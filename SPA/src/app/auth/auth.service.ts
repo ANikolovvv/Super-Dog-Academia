@@ -25,20 +25,22 @@ export class AuthService {
     }
   }
 
-  login(email: string, password: string): void {
+  login(email: string, password: string,rePass:string): void {
     this.user = {
       email,
-      password
+      password,
+      rePass
 
     }
     this.localeStorage.setItem('<USER>', JSON.stringify(this.user))
 
   }
-  register(email: string, password: string): void {
+  register(email: any|string, password: string|any,rePass:string| any): void {
 
     this.user = {
       email,
-      password
+      password,
+      rePass
 
     }
     this.localeStorage.setItem('<USER>', JSON.stringify(this.user))
