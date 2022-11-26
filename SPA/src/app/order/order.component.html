@@ -10,59 +10,120 @@
       <h1>Course: {{ course?.title }}</h1>
       <section class="all">
         <div class="div">
-          <label class="label" for="email">Email </label>
+          <label class="label" for="email"><i class="fa-solid fa-envelope"></i> Email </label>
           <input
             type="email"
             id="email"
             placeholder="email"
             ngModel
             name="email"
+            #inputEmail="ngModel"
+            [appEmail]="['com', 'bg']"
+            required
           />
+          <ng-container *ngIf="inputEmail.touched"
+            ><p class="error" *ngIf="inputEmail.errors?.['required']">
+              Email is required !
+            </p>
+
+            <p class="error" *ngIf="inputEmail.errors?.['emailValidator']">
+              Email is not valid !
+            </p>
+          </ng-container>
         </div>
+
         <div class="div">
-          <label class="label" for="tel">Phone</label>
+          <label class="label" for="tel"><i class="fa-solid fa-phone"></i> Phone</label>
           <input
             type="text"
             id="tel"
             placeholder=" 0885554449"
             ngModel
             name="tel"
+            [minlength]="10"
+            required
+            #tel="ngModel"
           />
+          <ng-container *ngIf="tel.touched">
+            <p class="error" *ngIf="tel.errors?.['required']">
+              Phone is required !
+            </p>
+            <p class="error" *ngIf="tel.errors?.['minlength']">
+              The phone should be at least 10 characters !
+            </p>
+          </ng-container>
         </div>
+
         <div class="div">
-          <label class="label" for="name">Name</label>
+          <label class="label" for="name"><i class="fa-sharp fa-solid fa-file-signature"></i> Name</label>
           <input
             type="text"
             id="name"
             placeholder="Dog's name"
             ngModel
             name="name"
+            required
+            #inputName="ngModel"
           />
+          <ng-container *ngIf="inputName.touched">
+            <p class="error" *ngIf="inputName.errors?.['required']">
+              Name is required !
+            </p>
+          </ng-container>
         </div>
+
         <div class="div">
-          <label class="label" for="Breed">Breed</label>
+          <label class="label" for="Breed"><i class="fa-solid fa-dog"></i> Breed</label>
           <input
             type="text"
             id="breed"
             placeholder="Breed"
             ngModel
             name="breed"
+            required
+            #breed="ngModel"
           />
+          <ng-container *ngIf="breed.touched">
+            <p class="error" *ngIf="breed.errors?.['required']">
+              Breed is required !
+            </p>
+          </ng-container>
         </div>
+
         <div class="div">
-          <label class="label age" for="age">Age</label>
-          <input type="text" id="age" placeholder="Age" ngModel name="age" />
+          <label class="label age" for="age"><i class="fa-solid fa-dog"></i> Age</label>
+          <input
+            type="text"
+            id="age"
+            placeholder="Age"
+            #age="ngModel"
+            ngModel
+            name="age"
+            required
+          />
+          <ng-container *ngIf="age.touched">
+            <p class="error" *ngIf="age.errors?.['required']">
+              Age is required !
+            </p>
+          </ng-container>
         </div>
+
         <div class="div">
-          <label class="l-gender" for="gender">Gender</label>
-          <select class="option" id="gender" ngModel name="gender">
+          <label class="l-gender" for="gender"><i class="fa-solid fa-dog"></i> Gender</label>
+          <select
+            class="option"
+            id="gender"
+            [(ngModel)]="ngSelect"
+            name="gender"
+          >
             <option value="male">Male</option>
             <option value="female">Female</option>
           </select>
         </div>
       </section>
       <div class="submit">
-        <button type="submit">SING UP</button>
+        <a routerLink="/courses"><i class="fa-solid fa-arrow-left"></i> BACK</a>
+        <button type="submit" [disabled]="orderForm.invalid">SING UP <i class="fa-solid fa-arrow-right"></i></button>
       </div>
     </form>
   </article>
