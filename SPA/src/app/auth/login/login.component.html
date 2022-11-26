@@ -6,13 +6,12 @@
     <form
       class="fild"
       #loginForm="ngForm"
-      action="#"
-      (ngSubmit)="handleLogin(loginForm)"
+      (ngSubmit)="handlerLogin(loginForm)"
     >
       <h1>Login Form</h1>
 
       <div class="input">
-        <label for="email">Email</label>
+        <label for="email"><i class="fa-solid fa-envelope"></i> Email</label>
         <input
           type="text"
           #inputEmail="ngModel"
@@ -34,7 +33,7 @@
         </ng-container>
       </div>
       <div class="input">
-        <label for="password">Password</label>
+        <label for="password"><i class="fa-solid fa-lock"></i> Password</label>
         <input
           type="password"
           #inputPass="ngModel"
