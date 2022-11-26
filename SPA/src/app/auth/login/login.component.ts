@@ -10,7 +10,7 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent implements OnInit {
   @ViewChild(
-  
+
     NgForm,
     { static: true }
   ) form!: ElementRef<HTMLInputElement>;
@@ -18,13 +18,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  handleLogin(form: NgForm): void {
+  handlerLogin(form: NgForm): void {
     if (form.invalid) { return; }
     const value: { email: string; password: string } = form.value;
-    this.authService.login(value.email,value. password);
+    this.authService.login(value.email, value.password, value.password);
     form.setValue({ email: '', password: '' });
-    console.log(value);
-    
 
     this.router.navigate(['/courses']);
   }
