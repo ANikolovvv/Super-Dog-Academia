@@ -1,7 +1,7 @@
-.form-order h1{
-    text-align: center;
-    font-size: 20px;
-    font-weight: bolder;
+.form-order h1 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bolder;
 }
 .order {
   margin: 0 auto;
@@ -19,7 +19,6 @@
 .dog-img {
   width: 40%;
   border: solid 2px #0284c7;
-  border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
 }
 .dog-img > img {
@@ -27,7 +26,6 @@
   height: 100%;
   object-fit: fill;
   box-shadow: 4px 8px 7px -4px rgba(0, 0, 0, 0.5);
-  border-radius: 5px 0px 0px 5px;
   filter: brightness(80%);
 }
 .form-order {
@@ -51,7 +49,6 @@ option {
   justify-content: center;
   align-items: center;
   gap: 2px;
-
 }
 
 #gender {
@@ -75,12 +72,13 @@ option {
 }
 
 .submit {
-    display: flex;
-   justify-content: center;
+  display: flex;
+  justify-content: space-around;
   text-align: center;
   margin: 10px 0px;
 }
-.submit button {
+.submit button,a {
+  text-decoration: none;
   padding: 10px 20px;
   background-color: white;
   border: solid 2px #0284c7;
@@ -91,7 +89,11 @@ option {
   letter-spacing: 1px;
   font-weight: bolder;
 }
-.submit button:hover{
+.submit a:hover{
+  background-color: #0284c7;
+  color: black;
+}
+.submit button:hover {
   background-color: #0284c7;
   color: black;
 }
@@ -104,9 +106,9 @@ input {
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
 }
-label{
-    font-weight: bolder;
-    font-size: 18px;
-    letter-spacing: 1px;
-    color: #0284c7;
+label {
+  font-weight: bolder;
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: #0284c7;
 }
