@@ -15,6 +15,8 @@ export class OrderComponent implements OnInit {
   btn = true;
   loading = true;
   id: string = '';
+  ngSelect: string = 'male';
+
   constructor(private apiServer: apiServer,
     private route: ActivatedRoute) { }
 
@@ -37,7 +39,7 @@ export class OrderComponent implements OnInit {
   }
   nandlerFormOrder(form: NgForm) {
     const value: {
-      email: string, tel: number,
+      email: string, tel: string,
       name: string, breed: string,
       age: number, gender: string
     } = form.value;
