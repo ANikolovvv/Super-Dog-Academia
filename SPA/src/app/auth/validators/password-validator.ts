@@ -6,6 +6,6 @@ export function passwordValidator(password: string, rePass: string): ValidatorFn
         const pass1 = group.get(password);
         const pass2 = group.get(rePass)
 
-        return pass1?.value === pass2?.value ? null : { asswordValidator: true };
+        return pass1?.value === pass2?.value ? null : { passwordValidator: true };
     }
 }
