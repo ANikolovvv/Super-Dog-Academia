@@ -1,13 +1,13 @@
-<main>
+<ng-container>
   <section class="form">
     <div class="img">
       <img src="../../../assets/Sean-1.jpg" alt="trainer" />
     </div>
-    <form class="fild" [formGroup]="form" (ngSubmit)="register()">
+    <form class="fild" [formGroup]="form" (ngSubmit)="handlerRegister()">
       <h1>Register Form</h1>
 
       <div class="input">
-        <label for="email">Email</label>
+        <label for="email"><i class="fa-solid fa-envelope"></i> Email</label>
         <input
           type="text"
           id="email"
@@ -29,7 +29,7 @@
       </div>
       <ng-container formGroupName="pass">
         <div class="input">
-          <label for="password">Password</label>
+          <label for="password"><i class="fa-solid fa-lock"></i> Password</label>
           <input
             type="password"
             id="password"
@@ -52,7 +52,7 @@
           </ng-container>
         </div>
         <div class="input">
-          <label for="rePass">Repeat Password</label>
+          <label for="rePass"><i class="fa-solid fa-lock"></i> Repeat Password</label>
           <input
             type="password"
             id="repass"
@@ -68,8 +68,8 @@
         </div>
       </ng-container>
       <div class="submit">
-        <button type="submit">Register</button>
+        <button type="submit" [disabled]="form.invalid">Register</button>
       </div>
     </form>
   </section>
-</main>
+</ng-container>
