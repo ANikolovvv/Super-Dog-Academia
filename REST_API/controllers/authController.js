@@ -13,12 +13,13 @@ router.get("/register", (req, res) => {
 router.post(
   "/register",
   body("email").isLength({ min: 8 }).withMessage("Minimum 8 letters"),
-  body("password")
-    .isLength({ min: 4 })
-    .withMessage("Password length must be at least 4"),
   async (req, res) => {
+    console.log(req.body,'body')
     try {
       const { errors } = validationResult(req);
+      if(req.body.password.length <4){
+        throw new Error('Password minimum 4 letters')
+      }
       if (errors.length > 0) {
         let message = errors.map((x) => x.msg).join("\n");
         throw new Error(message);
@@ -28,7 +29,7 @@ router.post(
       }
       const { email, password } = req.body;
       const result = await authServices.register(email, password);
-
+        console.log("reg")
       res.status(201).json(result);
     } catch (err) {
       console.error(err);
@@ -54,7 +55,7 @@ router.post("/login", async (req, res) => {
 router.get("/logout", (req, res) => {
   console.log("logout");
 
-  authServices.logout(req.user.token);
+  authServices.logout(req.body);
   res.json({ ok: true, status: 200, statusText: "ok", data: null });
   res.status(204).end();
 });
