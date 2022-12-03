@@ -9,23 +9,32 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class HeaderComponent implements OnInit {
   imageAlt = 'super-dog';
-  get isLogged(): boolean {
+  get isLogged(){
     return this.auhtService.isUser;
   }
-  
+  get user() {
+    return this.auhtService.user;
+  }
   //isUser:boolean=this.auhtService.isUser;
-  //guest = !this.isLogged;
- // user = this.isLogged;
+  guest = localStorage.getItem('<USER>');
+ 
   constructor(private auhtService: AuthService, private route: Router) {
  
   }
   ngOnInit(): void {
-    
+    console.log('guest',this.guest)
   }
   logout() {
-    //this.guest = true
-    this.auhtService.logout();
-    this.route.navigate(['/auth/login'])
+     console.log('logaut',this.auhtService.user)
+    this.auhtService.logout().subscribe({
+      next: () => {
+        this.route.navigate(['/auth/login']);
+      },
+      error: () => {
+        this.route.navigate(['/auth/login']);
+      }
+    });
+    
   }
 
 }
