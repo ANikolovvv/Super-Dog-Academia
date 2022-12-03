@@ -42,3 +42,19 @@
   letter-spacing: 1px;
   font-weight: bolder;
 }
+.contact ul {
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+.contact ul li{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #125ea3 ;
+  letter-spacing: 2px;
+  font-weight: bolder;
+}
+.contact ul li i{
+  color: #0284c7;
+ 
+}
