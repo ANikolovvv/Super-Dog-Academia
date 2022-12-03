@@ -11,6 +11,7 @@ import { OrderComponent } from './order/order.component';
 
 export const routes: Routes = [
   { path: "", pathMatch: 'full', redirectTo: '/home' },
+  { path: 'auth', loadChildren: () => import("../app/auth/auth.module").then(m => m.AuthModule) },
   { path: 'home', component: HomeComponent },
   { path: 'gallery', component: GalleryComponent },
   {
@@ -18,11 +19,22 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
     data: { authCuard: true, authRedirect: '/auth/login' }
   },
-  { path: "coaches", component: CoachesComponent, canActivate: [AuthGuard], data: { authCuard: true, authRedirect: '/auth/login' } },
-  { path: "order/:id", component: OrderComponent, canActivate: [AuthGuard], data: { authCuard: true, authRedirect: '/auth/login' } },
+  {
+    path: "coaches", component: CoachesComponent,
+    canActivate: [AuthGuard],
+    data: {
+      authCuard: true,
+      authRedirect: '/auth/login'
+    }
+  },
+  {
+    path: "order/:id", component: OrderComponent,
+    canActivate: [AuthGuard],
+    data: { authCuard: true, authRedirect: '/auth/login' }
+  },
   { path: "not-found", component: NotFoundComponent },
-  { path: "**", redirectTo: '/not-found' }
 
+  { path: "**", redirectTo: '/not-found' },
 ];
 
 @NgModule({
