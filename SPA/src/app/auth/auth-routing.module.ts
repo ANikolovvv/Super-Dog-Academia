@@ -30,3 +30,4 @@ export const routes: Routes = [
    exports: [RouterModule]
 })
 export class AuthRoutingModule { }
+//export const AuthRoutingModule=RouterModule.forChild(routes);
