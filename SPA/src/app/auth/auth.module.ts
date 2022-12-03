@@ -6,7 +6,8 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './guards/authGuard';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AppEmailDirective } from './validators/app-email.directive';
+import { AppEmailDirective } from './validators';
+
 
 
 @NgModule({
@@ -14,14 +15,16 @@ import { AppEmailDirective } from './validators/app-email.directive';
     RegisterComponent,
     LoginComponent,
     AppEmailDirective
+
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ],
-  providers: [AuthService, AuthGuard],
-  exports: [AppEmailDirective]
+  providers: [AuthService, AuthGuard,AppEmailDirective],
+
 })
 export class AuthModule { }
