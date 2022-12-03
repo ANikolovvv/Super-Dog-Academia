@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { emailValidator, passwordValidator } from '../validators';
+import { LocalStorage } from 'src/app/core/storage-inject';
+import { IAuth } from 'src/app/interfaces/auth';
 
 @Component({
   selector: 'app-register',
@@ -20,6 +22,9 @@ export class RegisterComponent implements OnInit {
       validators: [passwordValidator('password', 'rePass')]
     })
   })
+
+
+
   constructor(private authService: AuthService, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -28,13 +33,18 @@ export class RegisterComponent implements OnInit {
     console.log(this.form.value, 'reg')
     if (this.form.invalid) { return; }
     const email = this.form.value.email;
-    const pass = this.form.value.pass?.password;
+    const password = this.form.value.pass?.password;
     const rePass = this.form.value.pass?.rePass;
-    this.authService.register(email, pass, rePass);
-    this.form.reset()
+    
+    this.authService.register({ email: email, password: password, rePass: rePass }).subscribe((res: any) => {
+      console.log('Post created successfully!', res.accessToken)
+      this.authService.createToken(res)
 
+    });
+    
+    this.form.reset()
     this.router.navigate(['/courses']);
 
-
   }
+
 }
