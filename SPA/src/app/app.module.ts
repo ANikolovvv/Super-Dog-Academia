@@ -13,13 +13,15 @@ import { CoachesComponent } from './coaches/coaches.component';
 
 import { OrderComponent } from './order/order.component';
 import { CoursesComponent } from './courses/courses.component';
-import { RouterModule } from '@angular/router';
+import { PreloadAllModules, RouterModule } from '@angular/router';
 import { routes } from './app-routing.module';
 import { AuthModule } from './auth/auth.module';
 import { apiServer } from './app-service';
 import { AuthGuard } from './auth/guards/authGuard';
 import { FormsModule } from '@angular/forms';
 import { NotFoundComponent } from './core/not-found/not-found.component';
+import { AppInterceptor } from './app-interceptor';
+
 
 
 
@@ -32,6 +34,7 @@ import { NotFoundComponent } from './core/not-found/not-found.component';
     OrderComponent,
     CoursesComponent,
     NotFoundComponent,
+    
   ],
 
   imports: [
@@ -39,11 +42,12 @@ import { NotFoundComponent } from './core/not-found/not-found.component';
     CoreModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    FormsModule,AuthModule,
     RouterModule.forRoot(routes),
-    AuthModule,
-    FormsModule
+   
+    
   ],
-  providers: [apiServer, AuthGuard],
+  providers: [apiServer, AuthGuard,AppInterceptor],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
