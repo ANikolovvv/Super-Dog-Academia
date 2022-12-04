@@ -1,0 +1,144 @@
+body {
+  scroll-behavior: smooth;
+}
+#title {
+  text-align: center;
+  padding-top: 20px;
+}
+
+h1 {
+  color: #0284c7;
+}
+.no{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.no a:hover{
+    background-color: #0284c7;
+    color: black;
+}
+.course article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card {
+  display: flex;
+  flex-direction: row;
+  border-style: solid;
+  border-color: #0284c7;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+  width: 70%;
+  height: 62vh;
+  margin: 0px 0px 20px 20px;
+}
+.card-img {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 5px;
+}
+.card .desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 5px;
+  width: 100%;
+}
+.desc .text {
+  padding: 0px 0px 10px 10px;
+  text-align: left;
+}
+h2 {
+  color: #0284c7;
+  font-weight: bolder;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20pc;
+  justify-content: space-around;
+  text-align: left;
+}
+button,a {
+  text-align: left;
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: white;
+  border: solid 2px #0284c7;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+  font-size: 16px;
+  color: #0284c7;
+  letter-spacing: 1px;
+  font-weight: bolder;
+  cursor: pointer;
+}
+.buttons button:hover {
+  background-color: #0284c7;
+  color: black;
+}
+.buttons a:hover {
+  background-color: #0284c7;
+  color: black;
+}
+.desc .list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+ul {
+  list-style: none;
+}
+.list li {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-align: left;
+  font-weight: 600;
+  color: #1e40af;
+  margin-bottom: 2px;
+}
+.sign {
+  text-decoration: none;
+  padding: 5px 15px;
+  background-color: white;
+  border: solid 2px #0284c7;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+  font-size: 16px;
+  color: #0284c7;
+  letter-spacing: 1px;
+  font-weight: bolder;
+}
+.sign:hover {
+  background-color: #0284c7;
+  color: black;
+}
+i {
+  color: #0b0c0c;
+  margin-left: 20px;
+  
+}
+i:hover{
+    color: rgb(213, 207, 207);
+    
+}
