@@ -5,7 +5,8 @@ const Order = require("../models/Order");
 exports.createData = async (order) => {
   let newOrder = await Order.create(order);
   let userdata = await User.findById(newOrder._ownerId);
-
+   console.log(newOrder,'order')
+   console.log(userdata,'userdata')
   userdata.orderHistory.push(newOrder._id);
   userdata.save();
   return newOrder;
