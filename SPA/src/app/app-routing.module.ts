@@ -8,6 +8,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { OrderComponent } from './order/order.component';
+import { MyCourseComponent } from './my-course/my-course.component';
 
 export const routes: Routes = [
   { path: "", pathMatch: 'full', redirectTo: '/home' },
@@ -21,6 +22,14 @@ export const routes: Routes = [
   },
   {
     path: "coaches", component: CoachesComponent,
+    canActivate: [AuthGuard],
+    data: {
+      authCuard: true,
+      authRedirect: '/auth/login'
+    }
+  },
+  {
+    path: "my-course", component: MyCourseComponent,
     canActivate: [AuthGuard],
     data: {
       authCuard: true,
