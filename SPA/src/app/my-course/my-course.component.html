@@ -1,0 +1,52 @@
+<main>
+  <h1 id="title">My course</h1>
+  <section class="course">
+    <div class="error" *ngIf="errors">Error loading coaches!</div>
+
+    <div *ngIf="loading">
+      <app-loader></app-loader>
+    </div>
+    <ng-container *ngIf="!info">
+      <div class="no">
+        <h1>Sing in for course!</h1>
+        <a id="a" routerLink="/courses"><i class="fa-solid fa-arrow-left"></i> Back</a>
+      </div>
+    </ng-container>
+    <article>
+      <div class="card" *ngFor="let course of arr">
+        <div class="card-img">
+          <img src="{{ course.imageUrl }}" alt="course" />
+        </div>
+        <article class="desc">
+          <h1>Title: {{ course.title }} course.</h1>
+          <h2>Price: {{ course.price }}$</h2>
+          <p class="text">Description: {{ course.desc }}</p>
+          <div class="info">
+            <ul class="list">
+              <li *ngFor="let t of course.training">
+                <i class="fa-solid fa-dog"></i> {{ t }}
+              </li>
+            </ul>
+            <ul class="list">
+              <li><i class="fa-solid fa-dog"></i> Name: {{ course.name }}</li>
+              <li><i class="fa-solid fa-dog"></i> Breed: {{ course.breed }}</li>
+              <li>
+                <i class="fa-solid fa-dog"></i> Gender:{{ course.gender }}
+              </li>
+              <li><i class="fa-solid fa-dog"></i> Age:{{ course.age }}</li>
+            </ul>
+          </div>
+          <div class="buttons">
+            <a routerLink="/courses" type="submit"
+              ><i class="fa-solid fa-arrow-left"></i> Back</a
+            >
+            <button (click)="deleteHandler(course._id)">
+              <i class="fa-sharp fa-solid fa-triangle-exclamation"></i>Delete
+            </button>
+          </div>
+        </article>
+      </div>
+    </article>
+  </section>
+  <app-button-up></app-button-up>
+</main>
