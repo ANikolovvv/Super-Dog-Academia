@@ -11,27 +11,27 @@
 - <i><b>Home page with  contact info</b></i>
 - <i><b>(Register, Login) page</b></i>
 - <i><b>-</b></i>
-- <i><b>Sing in course (auth only) </b></i>
-- <i><b> Courses(auth only)</b></i>
-- <i><b>Coaches  (auth only)</b></i>
+- <i><b>Sing in course (user only) </b></i>
+- <i><b> Courses(user only)</b></i>
+- <i><b>Coaches  (users only)</b></i>
 - <i><b>Gallery    (users and guest) </b></i>
 
 <hr/>
-Angular:
+ <b>Angular:</b>
 
-- Animations
-- Routing
-- Guards
-- Template-Driven and Reactive Forms
-- Interceptors ,Interfaces,Pipes
-- Services
-- Validators
-- <i><b>others ( placeholders when loading, page not found, etc.)</b></i>
+- <b> Animations</b>
+- <b> Routing</b>
+- <b> Guards</b>
+- <b> Template-Driven and Reactive Forms</b>
+- <b> Interceptors ,Interfaces,Pipes</b>
+- <b> Services</b>
+- <b> Validators</b>
+- <i><b>Others ( placeholders when loading, page not found, etc.)</b></i>
 <hr/>
-The REST API is written with Express JS 
+<b>The REST API is written with Express JS </b>
 
 <h2>Used: </h2>
-- JSON Web Token for the auth,
-- Bcrypt for password hashing
-- Express Validator
-- Mongoose
+-  <b>JSON Web Token for the auth</b>
+- <b>Bcrypt for password hashing</b>
+- <b>Express Validator</b>
+- <b>Mongoose</b>
