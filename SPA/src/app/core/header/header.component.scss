@@ -63,14 +63,20 @@ header{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    text-align: center;
+  
     align-items: center;
     list-style: none;
-    gap: 20px;
+    gap: 30px;
+
+}
+.nav nav ul li{
+    display: flex;
+  
 
 }
 
 .nav nav li a{
+   text-align: left;
     text-decoration: none;
     font-size: 24px;
     color: #125ea3;
@@ -95,6 +101,10 @@ header{
 .icons a{
   text-decoration: none;
   font-size: 24px;
+  color: #125ea3;
+  cursor: pointer;
+  font-weight: bolder;
+  letter-spacing: 1px;
 }
 .icons i{
     background-color: #ffffff;
