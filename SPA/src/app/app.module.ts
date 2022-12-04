@@ -21,6 +21,7 @@ import { AuthGuard } from './auth/guards/authGuard';
 import { FormsModule } from '@angular/forms';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { AppInterceptor } from './app-interceptor';
+import { MyCourseComponent } from './my-course/my-course.component';
 
 
 
@@ -34,6 +35,7 @@ import { AppInterceptor } from './app-interceptor';
     OrderComponent,
     CoursesComponent,
     NotFoundComponent,
+    MyCourseComponent,
     
   ],
 
