@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { interval, Subscription } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
 import { IOrder } from '../interfaces/course';
 import { ICourses } from '../interfaces/courses';
@@ -20,22 +21,23 @@ export class MyCourseComponent implements OnInit {
 
   constructor(private authServer: AuthService, private router: Router) { }
   ngOnInit(): void {
+    interval(6000).subscribe(
+      (val) => {
+        this.authServer.getMyCourse().subscribe({
+          next: (value: any) => {
+            this.info = value.history.length > 0;
+            this.loading = !this.loading;
+            this.courses = value.history;
+            this.arr = value.history
+            console.log(this.info, 'fdddfgfdfdgdffdgd')
 
-    this.authServer.getMyCourse().subscribe({
-      next: (value: any) => {
-        this.info = value.history.length > 0;
-        this.loading = !this.loading;
-        this.courses = value.history;
-        this.arr = value.history
-        console.log(this.info, 'fdddfgfdfdgdffdgd')
-
-      },
-      error: (err: any) => {
-        this.errors = !this.loading;
-        console.error(err);
-      }
-    })
-
+          },
+          error: (err: any) => {
+            this.errors = !this.loading;
+            console.error(err);
+          }
+        })
+      })
   }
 
   deleteHandler(id: any): void {
