@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { interval, Subscription } from 'rxjs';
+import { interval } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
 import { IOrder } from '../interfaces/course';
-import { ICourses } from '../interfaces/courses';
+
 
 @Component({
   selector: 'app-my-course',

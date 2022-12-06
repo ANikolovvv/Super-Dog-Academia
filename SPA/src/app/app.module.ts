@@ -22,6 +22,8 @@ import { FormsModule } from '@angular/forms';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { AppInterceptor } from './app-interceptor';
 import { MyCourseComponent } from './my-course/my-course.component';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 
 
@@ -46,6 +48,8 @@ import { MyCourseComponent } from './my-course/my-course.component';
     BrowserAnimationsModule,
     FormsModule,AuthModule,
     RouterModule.forRoot(routes),
+    StoreModule.forRoot({}, {}),
+    EffectsModule.forRoot([]),
    
     
   ],
