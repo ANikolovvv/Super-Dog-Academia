@@ -1,7 +1,7 @@
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, Inject, OnDestroy } from '@angular/core';
-import { BehaviorSubject, catchError, filter, Observable, Subscription, tap, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, filter, Observable, Subscription, tap, throwError, timeInterval } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { LocalStorage } from '../core/storage-inject';
 import { IAuth } from '../interfaces/auth';
@@ -90,11 +90,11 @@ export class AuthService implements OnDestroy {
 
   }
 
-  getMyCourse(): Observable<IOrder> {
+  getMyCourse(): Observable<any> {
     this.guest = this.localeStorage.getItem('<USER>')
     const ctx = this.guest;
     const id = JSON.parse(ctx)._id;
-    return this.https.get<IOrder>(`${url}/trainer/my-data/${id}`);
+    return this.https.get<any>(`${url}/trainer/my-data/${id}`)
   }
   deleteMyCourse(id: any): Observable<IOrder> {
 
