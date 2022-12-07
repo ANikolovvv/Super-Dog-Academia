@@ -1,9 +1,10 @@
 <main>
   <h1 id="title">My course</h1>
+  
   <section class="course">
     <div class="error" *ngIf="errors">Error loading coaches!</div>
 
-    <div *ngIf="loading">
+    <div *ngIf="isFetchingHistory$ | async">
       <app-loader></app-loader>
     </div>
     <ng-container *ngIf="!info">
@@ -13,7 +14,7 @@
       </div>
     </ng-container>
     <article>
-      <div class="card" *ngFor="let course of arr">
+      <div class="card" *ngFor="let course of  arr">
         <div class="card-img">
           <img src="{{ course.imageUrl }}" alt="course" />
         </div>
