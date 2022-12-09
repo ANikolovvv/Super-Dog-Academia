@@ -21,23 +21,21 @@ const mainReducer = createReducer<IMainState>(
     mainInitialState,
 
     on(loadCorseSuccess, (state: any, { courses }: any) => {
-      
+               console.log(courses,'Load courses')
         return { ...state,courses,history:courses,};
     }),
     on(addCourse, (state: any, value:any) => {
-        const {history}=state
-        let num=0
-        console.log(state , 'addCoursestate')
+        const {history}=state;
+        const {courses}=state;
+        
+        console.log(courses , 'addCoursestate',state)
         console.log(value, 'addCorsevalue',history)
-        return { ...state,history:[history,value]};
+        return { ...state,courses:[courses,value],history:[history,value]};
     }),
   
    
 )
-// on(addTodo, (state, { content }) => ({
-//     ...state,
-//     todos: [...state.todos, { id: Date.now().toString(), content: content }],
-//   })),
+
 export const reducers: ActionReducerMap<IAppState> = {
     main: mainReducer,
     router: routerReducer,
