@@ -5,7 +5,7 @@ import { AuthService } from '../auth/auth.service';
 import { IOrder } from '../interfaces/course';
 import { Store } from '@ngrx/store';
 import { loadCourse, loadCorseSuccess, loadCourseFailure } from '../+store/actions';
-import { getHistory } from '../+store/selectors';
+import { getHistory, selectHistory } from '../+store/selectors';
 import { Actions, ofType } from '@ngrx/effects';
 import { Effect } from '../+store/effect';
 
@@ -22,7 +22,7 @@ export class MyCourseComponent implements OnInit {
   courses: IOrder[] | null = null;
   arr: any;
   errors = false;
-
+  allHistory$=this.store.select(selectHistory)
   loading = true;
   history$ = this.store.select(getHistory);
 
@@ -45,29 +45,33 @@ export class MyCourseComponent implements OnInit {
     private actions$: Actions,
     private router: Router,
     private store: Store) {
+    
+   
   }
   ngOnInit(): any {
     this.store.dispatch( loadCourse())
-    setTimeout(() => {
+    setTimeout(()=>{
+     
       this.history$.subscribe({
         next: (value: any | null) => {
+          let num=0
           this.info = value.history.length > 0;
           this.loading = !this.loading;
           this.courses = value.history;
           this.arr = value.history
-          console.log(this.info, 'fdddfgfdfdgdffdgd')
+         console.log(value,'allHistory',num++)
+          
         },
         error: (err: any) => {
           this.errors = !this.loading;
           console.error(err);
         }
       })
-    }, 1000)
-
+    },1000)
+  
   }
 
-
-
+  
   deleteHandler(id: any): void {
     this.authServer.deleteMyCourse(id).subscribe({
       next: (value: any) => {
