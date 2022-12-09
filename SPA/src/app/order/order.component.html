@@ -82,7 +82,7 @@
             required
             #breed="ngModel"
           />
-          <ng-container *ngIf="breed.touched">
+          <ng-container class="parent-error" *ngIf="breed.touched">
             <p class="error" *ngIf="breed.errors?.['required']">
               Breed is required !
             </p>
