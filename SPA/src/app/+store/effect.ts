@@ -26,25 +26,6 @@ export class Effect {
     constructor( private actions$: Actions,private auth: AuthService,private store: Store<IAppState>,) {
 
     }
-    // saveCourse = createEffect(
-    //     () =>
-    //       this.actions$.pipe(
-    //         ofType(addCourse),
-    //         withLatestFrom(this.store.select(loadCourse)),
-    //         switchMap(([action, courses]) =>
-    //          from(this.auth.createMyCourse(courses)))
-    //       ),
-    //     // Most effects dispatch another action, but this one is just a "fire and forget" effect
-    //     { dispatch: false }
-    //   );
+   
+       
 }
-// saveTodos$ = createEffect(
-//   () =>
-//     this.actions$.pipe(
-//       ofType(addTodo, removeTodo),
-//       withLatestFrom(this.store.select(selectAllTodos)),
-//       switchMap(([action, todos]) => from(this.todoService.saveTodos(todos)))
-//     ),
-//   // Most effects dispatch another action, but this one is just a "fire and forget" effect
-//   { dispatch: false }
-// );
