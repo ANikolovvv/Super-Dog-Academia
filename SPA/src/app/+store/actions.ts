@@ -11,4 +11,4 @@ const actioTypes = {
 export const loadCourse = createAction(actioTypes.loadCourse);
 export const loadCorseSuccess = createAction(actioTypes.loadCourseSuccess,props<{ courses: any}>());
 export const loadCourseFailure = createAction(actioTypes.loadCourseFailure, props<{ error: any }>());
-export const addCourse = createAction(actioTypes.addCourse,props<{ data: any }>());
+export const addCourse = createAction(actioTypes.addCourse,props<{ history: any }>());
