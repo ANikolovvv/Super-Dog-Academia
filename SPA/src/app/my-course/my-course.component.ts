@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { interval, map, merge, Observable, timeout } from 'rxjs';
+import { map, merge } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
 import { IOrder } from '../interfaces/course';
 import { Store } from '@ngrx/store';
 import { loadCourse, loadCorseSuccess, loadCourseFailure } from '../+store/actions';
 import { getHistory, selectHistory } from '../+store/selectors';
 import { Actions, ofType } from '@ngrx/effects';
-import { Effect } from '../+store/effect';
+
 
 
 
@@ -18,11 +18,11 @@ import { Effect } from '../+store/effect';
 })
 export class MyCourseComponent implements OnInit {
 
-  info: boolean = true
+  info: any
   courses: IOrder[] | null = null;
   arr: any;
   errors = false;
-  allHistory$=this.store.select(selectHistory)
+  allHistory$ = this.store.select(selectHistory)
   loading = true;
   history$ = this.store.select(getHistory);
 
@@ -45,44 +45,41 @@ export class MyCourseComponent implements OnInit {
     private actions$: Actions,
     private router: Router,
     private store: Store) {
-    
-   
+
+
   }
   ngOnInit(): any {
-    this.store.dispatch( loadCourse())
-    setTimeout(()=>{
-     
-      this.history$.subscribe({
-        next: (value: any | null) => {
-          let num=0
-          this.info = value.history.length > 0;
-          this.loading = !this.loading;
-          this.courses = value.history;
-          this.arr = value.history
-         console.log(value,'allHistory',num++)
-          
-        },
-        error: (err: any) => {
-          this.errors = !this.loading;
-          console.error(err);
-        }
-      })
-    },1000)
-  
+    this.store.dispatch(loadCourse())
+
+
+    this.history$.subscribe({
+      next: (value: any) => {
+        this.info = value.history.length > 0;
+        this.loading = !this.loading;
+        this.courses = value.history;
+        this.arr = value.history
+
+      },
+      error: (err: any) => {
+        this.errors = !this.loading;
+        console.error(err);
+      }
+    })
+
+
   }
 
-  
+
   deleteHandler(id: any): void {
     this.authServer.deleteMyCourse(id).subscribe({
       next: (value: any) => {
-        console.log(value, ' delete  fdddfgfdfdgdffdgd')
-        this.router.navigate(['/my-course']);
+        this.store.dispatch(loadCourse())
       },
       error: (err: any) => {
         console.error(err);
       }
     })
-    console.log(id, 'delete')
+
   }
 
 
