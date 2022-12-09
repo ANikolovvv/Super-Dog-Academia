@@ -87,6 +87,7 @@ router.post("/my-data", async (req, res) => {
   console.log('dsda',item)
   try {
     let result = await orderApi.createData(item);
+    console.log('dsda')
     res.status(201).json({ result });
   } catch (error) {
     res.status(400).json({ message: "Bad request" });
