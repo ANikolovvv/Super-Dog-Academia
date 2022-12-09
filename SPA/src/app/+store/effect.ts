@@ -1,9 +1,10 @@
 import { Injectable } from "@angular/core";
 import { createEffect, Actions, ofType} from '@ngrx/effects';
-import { provideState } from "@ngrx/store";
-import { catchError, map, mergeMap, switchMap, timeout, timer } from "rxjs";
+import { provideState, Store } from "@ngrx/store";
+import { catchError, from, map, mergeMap, switchMap, timeout, timer, withLatestFrom } from "rxjs";
+import { IAppState } from ".";
 import { AuthService } from "../auth/auth.service";
-import { loadCorseSuccess, loadCourse, loadCourseFailure } from "./actions";
+import { addCourse, loadCorseSuccess, loadCourse, loadCourseFailure } from "./actions";
 
 @Injectable({
     providedIn: 'root'
@@ -22,26 +23,28 @@ export class Effect {
                 catchError(error => [loadCourseFailure({ error })])
             ))
         ))
-    constructor( private actions$: Actions,private auth: AuthService) {
+    constructor( private actions$: Actions,private auth: AuthService,private store: Store<IAppState>,) {
 
     }
+    // saveCourse = createEffect(
+    //     () =>
+    //       this.actions$.pipe(
+    //         ofType(addCourse),
+    //         withLatestFrom(this.store.select(loadCourse)),
+    //         switchMap(([action, courses]) =>
+    //          from(this.auth.createMyCourse(courses)))
+    //       ),
+    //     // Most effects dispatch another action, but this one is just a "fire and forget" effect
+    //     { dispatch: false }
+    //   );
 }
-// loadMovies$ = createEffect(() => this.actions$.pipe(
-//     ofType('[Movies Page] Load Movies'),
-//     mergeMap(() => this.moviesService.getAll()
-//       .pipe(
-//         map(movies => ({ type: '[Movies API] Movies Loaded Success', payload: movies })),
-//         catchError(() => EMPTY)
-//       ))
-//     )
-//   );
-
-// loadUsers = createEffect(() => this.actions$.pipe(
-//     ofType(loadUsers),
-//     switchMap(({ filter }) => this.userService.loadUsers(filter).pipe(
-//       map(users => loadUsersSuccess({ users })),
-//       catchError(error => [loadUsersFailure({ error })])
-//     ))
-//   ))
-
-//   constructor(private actions$: Actions, private userService: UserService) { }
+// saveTodos$ = createEffect(
+//   () =>
+//     this.actions$.pipe(
+//       ofType(addTodo, removeTodo),
+//       withLatestFrom(this.store.select(selectAllTodos)),
+//       switchMap(([action, todos]) => from(this.todoService.saveTodos(todos)))
+//     ),
+//   // Most effects dispatch another action, but this one is just a "fire and forget" effect
+//   { dispatch: false }
+// );
