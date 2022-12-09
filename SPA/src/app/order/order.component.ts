@@ -7,7 +7,7 @@ import { AuthService } from '../auth/auth.service';
 import { Actions } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { getHistory } from '../+store/selectors';
-import { addCourse } from '../+store/actions';
+import { addCourse, loadCourse } from '../+store/actions';
 
 @Component({
   selector: 'app-order',
@@ -47,11 +47,7 @@ export class OrderComponent implements OnInit {
     })
   }
   nandlerFormOrder(form: NgForm) {
-    const value: {
-      email: string, tel: string,
-      name: string, breed: string,
-      age: number, gender: string
-    } = form.value;
+   
     const data = {
       email: form.value.email,
       name: form.value.name,
@@ -65,7 +61,7 @@ export class OrderComponent implements OnInit {
       training: this.course?.training,
       price: this.course?.price
     }
-    console.log(data, 'asdasdasasasasaa')
+   
     
     // this.course$.subscribe({
     //   next: (value: any | null) => {
@@ -77,12 +73,18 @@ export class OrderComponent implements OnInit {
     //     console.error(err);
     //   }
     // })
-    this.authService.createMyCourse(data).subscribe((res: any) => {
-      console.log('Course created successfully', res);
-      this.store.dispatch(addCourse(res.result))
-    })
-
-
-    this.path.navigate(['/my-course']);
+    setTimeout(()=>{
+      let response:any;
+      this.authService.createMyCourse(data).subscribe((res: any) => {
+        console.log('Course created successfully', res);
+        response=res.result;
+        this.store.dispatch(loadCourse())
+        
+      })
+      this.store.dispatch(addCourse(response))
+      
+      this.path.navigate(['/my-course']);
+    },500)
+    
   }
 }
