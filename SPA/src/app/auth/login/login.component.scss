@@ -36,11 +36,19 @@
   text-align: center;
 }
 .input {
+  position: relative;
   display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: center;
   gap: 10px;
+  margin-bottom: 10px;
+}
+.error {
+  position: absolute;
+  text-align: center;
+  top: 110%;
+  left: 5%;
 }
 .submit {
   display: flex;
@@ -60,7 +68,7 @@
   letter-spacing: 1px;
   font-weight: bolder;
 }
-input{
+input {
   margin-left: 20px;
   margin-right: 20px;
   padding: 5px 10px;
@@ -70,7 +78,7 @@ input{
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
 }
-label{
+label {
   font-weight: bolder;
   font-size: 16px;
   letter-spacing: 1px;
