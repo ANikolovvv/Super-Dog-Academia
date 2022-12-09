@@ -43,6 +43,7 @@ option {
   font-weight: bolder;
 }
 .div {
+  position: relative;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -98,6 +99,7 @@ option {
   color: black;
 }
 input {
+  margin-top: 10px;
   font-weight: bolder;
   padding: 10px 10px;
   text-align: center;
@@ -105,10 +107,14 @@ input {
   border: solid 2px #0284c7;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+  overflow: visible;
 }
 label {
+ 
   font-weight: bolder;
   font-size: 18px;
   letter-spacing: 1px;
   color: #0284c7;
+  margin: 10px;
+  overflow: visible;
 }
