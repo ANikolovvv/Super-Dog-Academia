@@ -17,3 +17,13 @@ i {
   color: white;
   
 }
+
+@media (max-width: 800px) {
+   .show{
+      width: 40px;
+      height: 40px;
+   }
+   i{
+    font-size: 20px;
+   }
+}
