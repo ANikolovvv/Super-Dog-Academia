@@ -32,12 +32,12 @@ h1 {
   border-color: #0284c7;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
-  width: 70%;
+  width: 80%;
   height: 62vh;
-  margin: 0px 0px 20px 20px;
+  margin: 0px 0px 60px 60px;
 }
 .card-img {
-  margin: 0 auto;
+  
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -75,7 +75,7 @@ h2 {
 .buttons {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20pc;
+  gap: 20px;
   justify-content: space-around;
   text-align: left;
 }
@@ -117,22 +117,7 @@ ul {
   color: #1e40af;
   margin-bottom: 2px;
 }
-.sign {
-  text-decoration: none;
-  padding: 5px 15px;
-  background-color: white;
-  border: solid 2px #0284c7;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
-  font-size: 16px;
-  color: #0284c7;
-  letter-spacing: 1px;
-  font-weight: bolder;
-}
-.sign:hover {
-  background-color: #0284c7;
-  color: black;
-}
+
 i {
   color: #0b0c0c;
   margin-left: 20px;
