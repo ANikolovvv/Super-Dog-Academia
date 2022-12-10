@@ -1,0 +1,60 @@
+@media (max-width: 1024px) {
+  input {
+    font-size: 12px;
+  }
+  .submit {
+    margin-top: 25px;
+  }
+  label {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  .error {
+    left: 8%;
+    font-size: 14px;
+  }
+  .submit button {
+    font-size: 12px;
+    padding: 5px 15px;
+  }
+  h1 {
+    font-size: 14px;
+  }
+  .form .fild {
+    gap: 10px;
+  }
+}
+@media (max-width: 800px) {
+  .form {
+    width: 80%;
+  }
+  input {
+    font-size: 12px;
+  }
+  .submit {
+    margin-top: 25px;
+  }
+  label {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  .error {
+    left: 8%;
+    font-size: 14px;
+  }
+  .submit button {
+    font-size: 12px;
+    padding: 5px 15px;
+  }
+  h1 {
+    font-size: 14px;
+  }
+  .form .fild {
+    gap: 10px;
+  }
+}
+@media (max-width: 600px) {
+  .form {
+    width: 80%;
+  }
+}
