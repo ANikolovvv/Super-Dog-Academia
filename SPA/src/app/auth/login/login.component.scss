@@ -84,3 +84,31 @@ label {
   letter-spacing: 1px;
   color: #0284c7;
 }
+@media (min-width: 800px) {
+  input{
+    font-size: 12px;
+  }
+  .submit{
+    margin-top: 23px;
+  }
+ 
+  label{
+    font-size: 12px;
+    margin-top: 5px;
+    padding: 5px 15px;
+  }
+  .error{
+    left: 8%;
+    font-size: 14px;
+  }
+  .submit button {
+    font-size: 12px;
+  }
+  h1{
+    font-size: 14px;
+  }
+  .form .fild{
+    gap: 10px;
+  }
+}
+
