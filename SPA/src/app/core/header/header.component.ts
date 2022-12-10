@@ -1,15 +1,15 @@
-import { Component,OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss', './responsive.component.scss']
 })
 export class HeaderComponent implements OnInit {
   imageAlt = 'super-dog';
-  get isLogged(){
+  get isLogged() {
     return this.auhtService.isUser;
   }
   get user() {
@@ -17,15 +17,15 @@ export class HeaderComponent implements OnInit {
   }
   //isUser:boolean=this.auhtService.isUser;
   guest = localStorage.getItem('<USER>');
- 
+
   constructor(private auhtService: AuthService, private route: Router) {
- 
+
   }
   ngOnInit(): void {
-    console.log('guest',this.guest)
+    console.log('guest', this.guest)
   }
   logout() {
-     console.log('logaut',this.auhtService.user)
+    console.log('logaut', this.auhtService.user)
     this.auhtService.logout().subscribe({
       next: () => {
         this.route.navigate(['/auth/login']);
@@ -34,7 +34,7 @@ export class HeaderComponent implements OnInit {
         this.route.navigate(['/auth/login']);
       }
     });
-    
+
   }
 
 }
