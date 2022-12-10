@@ -38,13 +38,13 @@ const loaderOut = trigger('loaderOut', [exitTransition]);
   animations: [loader, loaderOut]
 })
 export class ButtonUpComponent implements OnInit {
-  btn:boolean = true;
+  btn: boolean = true;
   constructor(@Inject(DOCUMENT) private document: Document) { }
 
   ngOnInit(): void {
-    
+
   }
-  clickHandler(){
+  clickHandler() {
     this.btn = false;
     setTimeout(() => {
       this.btn = true
