@@ -4,10 +4,10 @@
   <section class="course">
     <div class="error" *ngIf="errors">Error loading coaches!</div>
 
-    <div *ngIf="isFetchingHistory$ | async">
+    <div *ngIf="loading">
       <app-loader></app-loader>
     </div>
-    <ng-container *ngIf="!info">
+    <ng-container *ngIf="info">
       <div class="no">
         <h1>Sing in for course!</h1>
         <a id="a" routerLink="/courses"><i class="fa-solid fa-arrow-left"></i> Back</a>
