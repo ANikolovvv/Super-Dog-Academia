@@ -7,7 +7,7 @@ import { ICoaches } from '../interfaces/coaches';
 @Component({
   selector: 'app-coaches',
   templateUrl: './coaches.component.html',
-  styleUrls: ['./coaches.component.scss'],
+  styleUrls: ['./coaches.component.scss', './responsive.component.scss'],
 
 })
 export class CoachesComponent implements OnInit {
