@@ -5,8 +5,6 @@ import { DOCUMENT } from "@angular/common";
 import { trigger, transition, style, animate, state } from '@angular/animations';
 
 
-
-
 @Component({
   selector: 'app-not-found',
   templateUrl: './not-found.component.html',
