@@ -38,6 +38,9 @@ p {
   margin: 0;
   padding: 0;
 }
+input:hover{
+  background-color: aqua;
+}
 .error{
   position: absolute;
   top: 35%;
@@ -45,4 +48,15 @@ p {
   padding: 0;
   margin: 0;
   overflow: visible;
+}
+
+@media (max-width: 1024px) {
+  h1{
+    font-size: 16px;
+  }
+}
+@media (max-width: 800px) {
+   h1{
+    font-size: 14px;
+   }
 }
