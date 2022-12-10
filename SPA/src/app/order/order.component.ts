@@ -12,7 +12,7 @@ import { addCourse, loadCourse } from '../+store/actions';
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
-  styleUrls: ['./order.component.scss']
+  styleUrls: ['./order.component.scss','./responsive.scss']
 })
 export class OrderComponent implements OnInit {
   course: IOrder | null = null;
