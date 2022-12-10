@@ -14,7 +14,7 @@ import { Actions, ofType } from '@ngrx/effects';
 @Component({
   selector: 'app-my-course',
   templateUrl: './my-course.component.html',
-  styleUrls: ['./my-course.component.scss']
+  styleUrls: ['./my-course.component.scss','./responsive.component.scss']
 })
 export class MyCourseComponent implements OnInit {
 
