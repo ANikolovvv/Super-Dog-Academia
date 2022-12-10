@@ -14,16 +14,17 @@ import { Actions, ofType } from '@ngrx/effects';
 @Component({
   selector: 'app-my-course',
   templateUrl: './my-course.component.html',
-  styleUrls: ['./my-course.component.scss','./responsive.component.scss']
+  styleUrls: ['./my-course.component.scss', './responsive.component.scss']
 })
 export class MyCourseComponent implements OnInit {
-
-  info: any
+  
+  
+  info: boolean =false
   courses: IOrder[] | null = null;
   arr: any;
   errors = false;
   allHistory$ = this.store.select(selectHistory)
-  loading = true;
+  loading: boolean = true;
   history$ = this.store.select(getHistory);
 
   isFetchingHistory$ = merge(
@@ -51,29 +52,30 @@ export class MyCourseComponent implements OnInit {
   ngOnInit(): any {
     this.store.dispatch(loadCourse())
 
+    setTimeout(() => {
+      this.history$.subscribe({
+        next: (value: any) => {
+          console.log(value, 'vvvvvvvv')
+          this.info = value.history.length === 0;
+          this.loading = !this.loading;
+          this.courses = value.history;
+          this.arr = value.history
 
-    this.history$.subscribe({
-      next: (value: any) => {
-        this.info = value.history.length > 0;
-        this.loading = !this.loading;
-        this.courses = value.history;
-        this.arr = value.history
+        },
+        error: (err: any) => {
+          this.errors = !this.loading;
+          console.error(err);
+        }
+      })
 
-      },
-      error: (err: any) => {
-        this.errors = !this.loading;
-        console.error(err);
-      }
-    })
-
-
+    },1000)
   }
-
 
   deleteHandler(id: any): void {
     this.authServer.deleteMyCourse(id).subscribe({
       next: (value: any) => {
         this.store.dispatch(loadCourse())
+        this.loading=true
       },
       error: (err: any) => {
         console.error(err);
@@ -81,7 +83,4 @@ export class MyCourseComponent implements OnInit {
     })
 
   }
-
-
-
 }
