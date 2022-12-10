@@ -7,7 +7,7 @@ import { ICourses } from '../interfaces/courses';
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
-  styleUrls: ['./courses.component.scss']
+  styleUrls: ['./courses.component.scss','./responsive.component.scss']
 })
 export class CoursesComponent implements OnInit {
   courses: ICourses[] | null = null;
