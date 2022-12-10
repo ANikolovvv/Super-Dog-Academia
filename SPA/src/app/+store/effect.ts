@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { createEffect, Actions, ofType} from '@ngrx/effects';
+import { createEffect, Actions, ofType } from '@ngrx/effects';
 import { provideState, Store } from "@ngrx/store";
 import { catchError, from, map, mergeMap, switchMap, timeout, timer, withLatestFrom } from "rxjs";
 import { IAppState } from ".";
@@ -12,20 +12,20 @@ import { addCourse, loadCorseSuccess, loadCourse, loadCourseFailure } from "./ac
 
 
 export class Effect {
-    
+
     createCourse = createEffect(() =>
-       
+
         this.actions$.pipe(
             ofType(loadCourse),
             mergeMap(
                 () => this.auth.getMyCourse().pipe(
-                map(courses =>  loadCorseSuccess({courses})),
-                catchError(error => [loadCourseFailure({ error })])
-            ))
+                    map(courses => loadCorseSuccess({ courses })),
+                    catchError(error => [loadCourseFailure({ error })])
+                ))
         ))
-    constructor( private actions$: Actions,private auth: AuthService,private store: Store<IAppState>,) {
+    constructor(private actions$: Actions, private auth: AuthService, private store: Store<IAppState>,) {
 
     }
-   
-       
+
+
 }
