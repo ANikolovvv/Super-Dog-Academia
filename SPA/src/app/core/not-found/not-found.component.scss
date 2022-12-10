@@ -1,32 +1,52 @@
-#found{
-    background-color: #fff;
+#found {
+  background-color: #fff;
 }
 
-.not-title{
+.not-title {
   text-align: center;
   font-size: 24px;
   letter-spacing: 1px;
   display: flex;
-  justify-content:center;
+  justify-content: center;
   flex-direction: row;
   gap: 20px;
 }
-.not-title i{
-    font-size: 32px;
+.not-title i {
+  font-size: 32px;
+  color: #0284c7;
+}
+.open-close-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 65vh;
+}
+.open-close-container .dog {
+  background-color: #f5ece4;
+  object-fit: fill;
+  color: rgb(247, 247, 247);
+  opacity: 0.7;
+  border-radius: 20px;
+}
+@media (max-width: 1024px) {
+  #found h1 {
+    font-size: 16px;
+  }
+  .not-title i {
+    font-size: 24px;
     color: #0284c7;
+    margin: 0;
+    padding: 0;
+  }
 }
-.open-close-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 65vh;
-   
-}
-.open-close-container .dog{
-  background-color: #f6f4f2;
-    object-fit: fill;
-    color: #fff;
-    opacity: 0.9;
-    border-radius: 5px;
+@media (max-width: 800px) {
+  #found h1 {
+    font-size: 14px;
+  }
+  .not-title i {
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+  }
 }
