@@ -1,0 +1,86 @@
+@media (max-width: 1024px) {
+  main {
+    padding: 0px;
+  }
+  .course {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+  }
+  .course article {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+  .card {
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+  }
+  h2 {
+    font-size: 14px;
+  }
+  .text {
+    margin: 0;
+    font-weight: bolder;
+    font-size: 14px;
+  }
+  ul {
+    margin: 0;
+  }
+  li {
+    font-size: 12px;
+  }
+  .sign {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .desc {
+    margin: 0;
+    padding: 0;
+  }
+  .desc > h1 {
+    margin: 0;
+    padding: 0;
+  }
+}
+@media (max-width: 800px) {
+
+  h2 {
+    font-size: 14px;
+  }
+  .text {
+    margin: 0;
+    font-weight: bolder;
+    font-size: 14px;
+  }
+ 
+  li {
+    font-size: 12px;
+  }
+  .sign {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+  .desc {
+    margin: 0;
+    padding: 0;
+  }
+  .desc > h1 {
+    margin: 0;
+    padding: 0;
+  }
+}
+@media (max-width: 600px) {
+  .card{
+    width: 95%;
+  }
+  .sign {
+    margin-top: 10px;
+    font-size: 10px;
+  }
+}
