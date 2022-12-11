@@ -49,7 +49,7 @@
   position: absolute;
   text-align: center;
   top: 110%;
-  left: 5%;
+  margin-left: 45px;
 }
 .submit {
   display: flex;
@@ -86,7 +86,7 @@ label {
   letter-spacing: 1px;
   color: #0284c7;
 }
-@media (min-width: 800px) {
+@media (max-width: 800px) {
   input{
     font-size: 12px;
   }
@@ -100,8 +100,9 @@ label {
     padding: 5px 15px;
   }
   .error{
-    left: 8%;
+    left: 5%;
     font-size: 14px;
+    margin-left: 20px;
   }
   .submit button {
     font-size: 12px;
