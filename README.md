@@ -27,6 +27,7 @@
 - <b> Interceptors ,Interfaces,Pipes</b>
 - <b> Services</b>
 - <b> Validators</b>
+- <b> Unit testing for some components</b>
 - <i><b>Others ( placeholders when loading, page not found, etc.)</b></i>
 <hr/>
 <b>The REST API is written with Express JS </b>
