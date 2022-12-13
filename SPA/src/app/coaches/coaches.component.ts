@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 import { apiServer } from '../app-service';
@@ -17,7 +18,7 @@ export class CoachesComponent implements OnInit {
   loading = true;
   windowScrolled = false;
 
-  constructor(private apiServer: apiServer) { }
+  constructor(private apiServer: apiServer ,private httpClient: HttpClient) { }
 
   ngOnInit(): void {
     this.apiServer.loadCoaches().subscribe({
