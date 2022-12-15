@@ -22,15 +22,17 @@ const mainReducer = createReducer<IMainState>(
 
     on(loadCorseSuccess, (state: any, { courses }: any) => {
         console.log(courses, 'Load courses')
-        return { ...state, courses, history: courses, };
+        return { ...state, courses, history: courses.history, };
     }),
     on(addCourse, (state: any, value: any) => {
         const { history } = state;
         const { courses } = state;
 
-        console.log(courses, 'addCoursestate', state)
-        console.log(value, 'addCorsevalue', history)
-        return { ...state, courses: [courses, value], history: [history, value] };
+        console.log(courses, 'addCoursestate')
+        console.log( 'addCorsevalue', history)
+        console.log(value, 'value')
+        console.log(state, 'state')
+        return { ...state, courses: [courses.history, value], history: [history.history, value] };
     }),
 
 
