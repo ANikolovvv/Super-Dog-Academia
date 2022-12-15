@@ -63,14 +63,16 @@ export class OrderComponent implements OnInit {
       price: this.course?.price
     }
 
-
-    this.authService.createMyCourse(data).subscribe((res: any) => {
-      console.log('Course created successfully', res);
-      this.store.dispatch(addCourse(res.result))
-
-    })
-    this.store.dispatch(loadCourse())
-    this.path.navigate(['/my-course']);
+    setTimeout(()=>{
+      this.authService.createMyCourse(data).subscribe((res: any) => {
+        console.log('Course created successfully', res);
+        this.store.dispatch(addCourse(res.result))
+  
+      })
+      this.store.dispatch(loadCourse())
+      this.path.navigate(['/my-course']);
+    },500)
+   
 
   }
 }
