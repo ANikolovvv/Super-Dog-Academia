@@ -56,7 +56,7 @@ export class MyCourseComponent implements OnInit {
       this.history$.subscribe({
         next: (value: any) => {
           console.log(value, 'vvvvvvvv')
-          this.info = value.history.length === 0;
+          this.info = value.history.length == 0 ;
           this.loading = !this.loading;
           this.courses = value.history;
           this.arr = value.history
@@ -68,7 +68,7 @@ export class MyCourseComponent implements OnInit {
         }
       })
 
-    },1000)
+    },2000)
   }
 
   deleteHandler(id: any): void {
