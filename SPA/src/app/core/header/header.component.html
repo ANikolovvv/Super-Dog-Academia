@@ -1,6 +1,6 @@
-<header #header class="header">
-  <div class="container-head">
-    <div>
+<header #header class="header"   >
+  <div class="container-head" >
+    <div @run>
       <a class="img" routerLink="/">
         <img
           class="logo"
@@ -11,8 +11,8 @@
       </a>
       <h1>Super Dog Academia</h1>
     </div>
-    <div class="nav">
-      <nav>
+    <div class="nav" @flyInOut >
+      <nav >
         <ul>
           <li><a routerLink="/home">Home</a></li>
           <li><a routerLink="/gallery">Gallery</a></li>
@@ -24,7 +24,7 @@
         </ul>
       </nav>
     </div>
-    <div class="icons">
+    <div class="icons" @flyInOut>
       <a *ngIf="isLogged" (click)="logout()">Logout</a>
       <a routerLink="">
         <i class="fa-brands fa-square-instagram"></i>
@@ -37,4 +37,6 @@
       </a>
     </div>
   </div>
+  
 </header>
+
