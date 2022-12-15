@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap");
 
+
 header {
   display: flex;
   justify-content: center;
@@ -7,6 +8,7 @@ header {
   margin: 10px 0;
   padding: 0;
 }
+
 .container-head {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -16,6 +18,7 @@ header {
   gap: 10px;
   width: 100%;
   background-color: #f6f4f2;
+  
 }
 .container-head div:first-child {
   display: flex;
@@ -57,6 +60,7 @@ header {
   align-items: center;
   margin-left: 60px;
 }
+
 .nav nav ul {
   display: flex;
   flex-direction: row;
