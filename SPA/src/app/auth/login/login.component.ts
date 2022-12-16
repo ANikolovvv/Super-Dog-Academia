@@ -6,7 +6,7 @@ import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss','./responsive.component.scss']
+  styleUrls: ['./login.component.scss', './responsive.component.scss']
 })
 export class LoginComponent implements OnInit {
   @ViewChild(
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     if (form.invalid) { return; }
     const value: { email: string; password: string } = form.value;
     this.authService.login(value.email, value.password, value.password).subscribe((res: any) => {
-      console.log('Post created successfully!', res.accessToken)
+
       this.authService.createToken(res)
 
     });;
