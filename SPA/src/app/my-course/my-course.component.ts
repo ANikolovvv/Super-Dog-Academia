@@ -5,7 +5,7 @@ import { AuthService } from '../auth/auth.service';
 import { IOrder } from '../interfaces/course';
 import { Store } from '@ngrx/store';
 import { loadCourse, loadCorseSuccess, loadCourseFailure } from '../+store/actions';
-import { getHistory, selectHistory } from '../+store/selectors';
+import { getHistory } from '../+store/selectors';
 import { Actions, ofType } from '@ngrx/effects';
 
 
@@ -17,16 +17,17 @@ import { Actions, ofType } from '@ngrx/effects';
   styleUrls: ['./my-course.component.scss', './responsive.component.scss']
 })
 export class MyCourseComponent implements OnInit {
-  
-  
-  info: boolean =false
+
+
+  info: boolean = false
   courses: IOrder[] | null = null;
   arr: any;
   errors = false;
-  allHistory$ = this.store.select(selectHistory)
+  count: number = 0;
   loading: boolean = true;
-  history$ = this.store.select(getHistory);
 
+  history$ = this.store.select(getHistory);
+  
   isFetchingHistory$ = merge(
     this.actions$.pipe(
       ofType(loadCourse),
@@ -46,36 +47,38 @@ export class MyCourseComponent implements OnInit {
     private actions$: Actions,
     private router: Router,
     private store: Store) {
-
-
+    
   }
+  
   ngOnInit(): any {
+    
     this.store.dispatch(loadCourse())
-
+    this.dataHandler()
+  }
+  dataHandler() {
     setTimeout(() => {
       this.history$.subscribe({
         next: (value: any) => {
-          console.log(value, 'vvvvvvvv')
-          this.info = value.history.length == 0 ;
+          this.info = value.history ? value.history.length === 0 : value.length === 0;
           this.loading = !this.loading;
-          this.courses = value.history;
           this.arr = value.history
 
         },
         error: (err: any) => {
           this.errors = !this.loading;
           console.error(err);
+          
         }
       })
 
-    },2000)
+    }, 1000)
   }
 
   deleteHandler(id: any): void {
     this.authServer.deleteMyCourse(id).subscribe({
       next: (value: any) => {
         this.store.dispatch(loadCourse())
-        this.loading=true
+        this.loading = true
       },
       error: (err: any) => {
         console.error(err);
