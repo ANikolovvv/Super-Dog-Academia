@@ -3,7 +3,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { apiServer } from '../app-service';
-import { LoaderComponent } from '../core/loader/loader.component';
+
 import { ICoaches } from '../interfaces/coaches';
 import { CoachesComponent } from './coaches.component';
 
