@@ -3,7 +3,7 @@ import {  Injectable, Provider } from "@angular/core";
 
 import { Observable } from "rxjs";
 import { environment } from '../environments/environment';
-import { AuthService } from "./auth/auth.service";
+
 
 
 const apiURL = environment.url;
