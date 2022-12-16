@@ -3,13 +3,12 @@ import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { emailValidator, passwordValidator } from '../validators';
-import { LocalStorage } from 'src/app/core/storage-inject';
-import { IAuth } from 'src/app/interfaces/auth';
+
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss','./responsive.component.scss']
+  styleUrls: ['./register.component.scss', './responsive.component.scss']
 })
 export class RegisterComponent implements OnInit {
 
@@ -35,13 +34,13 @@ export class RegisterComponent implements OnInit {
     const email = this.form.value.email;
     const password = this.form.value.pass?.password;
     const rePass = this.form.value.pass?.rePass;
-    
+
     this.authService.register({ email: email, password: password, rePass: rePass }).subscribe((res: any) => {
-      console.log('Post created successfully!', res.accessToken)
+
       this.authService.createToken(res)
 
     });
-    
+
     this.form.reset()
     this.router.navigate(['/courses']);
 
