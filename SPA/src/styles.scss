@@ -1,14 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=PT+Sans|PT+Serif");
 @import url("https://use.fontawesome.com/releases/v6.2.0/css/all.css");
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap");
 
 body {
   margin: 0;
   padding: 0;
   //font-family: "Roboto", sans-serif;
-  font-family: 'Merriweather', serif;
-  height:100%;
-  overflow:scroll; 
+  font-family: "Merriweather", serif;
+  height: 100%;
+  overflow: scroll;
   padding-bottom: 5rem;
 }
 main {
@@ -27,21 +27,21 @@ p {
   color: #125ea3;
   font-size: 16px;
 }
-.loader{
+.loader {
   text-align: center;
   font-weight: bolder;
   color: #0284c7;
   font-size: 24px;
   letter-spacing: 2px;
 }
-.parent-error{
+.parent-error {
   margin: 0;
   padding: 0;
 }
-input:hover{
+input:hover {
   background-color: aqua;
 }
-.error{
+.error {
   position: absolute;
   top: 35%;
   color: red;
@@ -49,14 +49,33 @@ input:hover{
   margin: 0;
   overflow: visible;
 }
-
+.field-error {
+  margin: 0;
+  padding: 0;
+  color: red;
+  text-align: center;
+}
 @media (max-width: 1024px) {
-  h1{
+  h1 {
     font-size: 16px;
   }
 }
 @media (max-width: 800px) {
-   h1{
+  h1 {
     font-size: 14px;
-   }
+  }
+  .error {
+    font-size: 14px;
+  }
+  .field-error {
+    font-size: 14px;
+  }
+}
+@media (max-width: 600px) {
+  .error {
+    font-size: 12px;
+  }
+  .field-error {
+    font-size: 12px;
+  }
 }
