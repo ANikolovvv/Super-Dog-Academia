@@ -124,6 +124,9 @@
         <a class="back" routerLink="/courses"><i class="fa-solid fa-arrow-left"></i> BACK</a>
         <button class="back" type="submit" [disabled]="orderForm.invalid">SING UP <i class="fa-solid fa-arrow-right"></i></button>
       </div>
+      <ng-container  *ngIf="checkForError.length > 0">
+        <p class="field-error">{{checkForError}}</p>
+      </ng-container>
     </form>
   </article>
 </main>
