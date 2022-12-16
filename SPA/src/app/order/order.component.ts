@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { apiServer } from '../app-service';
 import { IOrder } from '../interfaces/course';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../auth/auth.service';
 import { Actions } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { getHistory } from '../+store/selectors';
-import { addCourse, loadCourse } from '../+store/actions';
+
+import { loadCourse } from '../+store/actions';
 
 @Component({
   selector: 'app-order',
@@ -21,6 +21,7 @@ export class OrderComponent implements OnInit {
   loading = true;
   id: string = '';
   ngSelect: string = 'male';
+  checkForError: any = '';
 
   constructor(private authService: AuthService, private apiServer: apiServer,
     private route: ActivatedRoute, private path: Router,
@@ -42,12 +43,23 @@ export class OrderComponent implements OnInit {
       error: (err) => {
         this.errors = !this.loading;
         console.error(err);
+        console.log(err, 'errr');
       }
     })
 
-
   }
   nandlerFormOrder(form: NgForm) {
+    if (!form.value.email.includes('@')) {
+      this.checkForError = ('Email is not valid')
+    } else if (!isNaN(form.value.name)) {
+      this.checkForError = ('Name should not be a number')
+    } else if (!isNaN(form.value.breed)) {
+      this.checkForError = 'Breed should not be a number'
+    } else if (isNaN(form.value.age)) {
+      this.checkForError = ('Age should  be a number')
+    } else if (isNaN(form.value.tel)) {
+      this.checkForError = ('Phone should  be a number')
+    }
 
     const data = {
       email: form.value.email,
@@ -62,17 +74,22 @@ export class OrderComponent implements OnInit {
       training: this.course?.training,
       price: this.course?.price
     }
-
-    setTimeout(()=>{
-      this.authService.createMyCourse(data).subscribe((res: any) => {
-        console.log('Course created successfully', res);
-        this.store.dispatch(addCourse(res.result))
-  
-      })
-      this.store.dispatch(loadCourse())
-      this.path.navigate(['/my-course']);
-    },500)
+    console.log(data)
+    if (this.checkForError.length === 0) {
+      setTimeout(() => {
+        this.authService.createMyCourse(data).subscribe((res: any) => {
+          console.log('Course created successfully', res);
+          this.store.dispatch(loadCourse())
+        })
+        this.path.navigate(['/my-course']);
+        //this.store.dispatch(loadCourse())
+      }, 500)
+    }else{
+      setInterval(()=>{
+        this.checkForError=''
+      },1000)
+    }
    
-
+    
   }
 }
