@@ -23,7 +23,7 @@ export class AuthService implements OnDestroy {
   error: any;
   token: any;
   guest: any;
-  
+
   get isUser() {
     return this.user !== null;
   }
@@ -45,7 +45,7 @@ export class AuthService implements OnDestroy {
 
     } catch (error) {
       this.user = null;
-     
+
     }
   }
 
@@ -56,7 +56,7 @@ export class AuthService implements OnDestroy {
       rePass
 
     }
-    //this.localeStorage.setItem('<USER>', JSON.stringify(this.user))
+   
     return this.https.post<IUser>(`${url}/auth/login`, JSON.stringify({ email, password, rePass }), this.httpOptions)
       .pipe(tap(user => this.user$$.next(user)));
   }
@@ -115,7 +115,7 @@ export class AuthService implements OnDestroy {
     this.guest = this.localeStorage.getItem('<USER>')
     const info = this.guest;
     const token = JSON.parse(info).accessToken;
-    console.log(token, 'create')
+
     const httpTokenOptions = {
       headers: new HttpHeaders({
         "Content-Type": "application/json",
@@ -124,6 +124,7 @@ export class AuthService implements OnDestroy {
 
     }
     return this.https.post<IOrder>(`${url}/trainer/my-data`, JSON.stringify(ctx), httpTokenOptions)
+
   }
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
