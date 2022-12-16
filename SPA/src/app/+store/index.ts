@@ -1,39 +1,28 @@
 import { ActionReducerMap, createReducer, on } from "@ngrx/store";
 import { routerReducer } from '@ngrx/router-store';
-import { addCourse, loadCorseSuccess, loadCourse } from "./actions";
+import { loadCorseSuccess } from "./actions";
 
 export interface IMainState {
     courses: null | any[];
-    history: any
-
 }
-
 export interface IAppState {
     main: IMainState;
     router: ReturnType<typeof routerReducer>
 }
 const mainInitialState: IMainState = {
     courses: null,
-    history: null
+
 
 }
 const mainReducer = createReducer<IMainState>(
     mainInitialState,
 
     on(loadCorseSuccess, (state: any, { courses }: any) => {
-        console.log(courses, 'Load courses')
-        return { ...state, courses, history: courses.history, };
+        let history = courses.history
+        console.log(courses, history, 'Load courses')
+        return { ...state, courses };
     }),
-    on(addCourse, (state: any, value: any) => {
-        const { history } = state;
-        const { courses } = state;
 
-        console.log(courses, 'addCoursestate')
-        console.log( 'addCorsevalue', history)
-        console.log(value, 'value')
-        console.log(state, 'state')
-        return { ...state, courses: [courses.history, value], history: [history.history, value] };
-    }),
 
 
 )
