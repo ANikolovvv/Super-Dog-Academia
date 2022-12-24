@@ -28,6 +28,7 @@ import { AppComponent } from './app.component';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { reducers } from './+store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { ArticleComponent } from './article/article.component';
 
 
 
@@ -42,6 +43,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     CoursesComponent,
     NotFoundComponent,
     MyCourseComponent,
+    ArticleComponent
 ],
 
   imports: [
