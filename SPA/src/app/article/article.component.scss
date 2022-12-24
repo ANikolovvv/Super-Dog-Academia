@@ -1,0 +1,163 @@
+body {
+  scroll-behavior: smooth;
+}
+#title {
+  text-align: center;
+  padding-top: 20px;
+}
+
+h1 {
+  color: #0284c7;
+}
+.course article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-color: #0284c7;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+  width: 80%;
+  height: 142vh;
+  margin: 0px 0px 60px 60px;
+}
+.card-img {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+}
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 5px;
+}
+.card .desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 5px;
+  width: 100%;
+  position: relative;
+}
+.desc .text {
+  padding: 0px 0px 10px 10px;
+  text-align: left;
+}
+h2 {
+  color: #0284c7;
+  font-weight: bolder;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: space-around;
+  text-align: left;
+}
+button,
+a {
+  text-align: left;
+  text-decoration: none;
+  padding: 5px 10px;
+  background-color: white;
+  border: solid 2px #0284c7;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  color: #0284c7;
+  letter-spacing: 1px;
+  font-weight: bolder;
+  cursor: pointer;
+}
+.buttons button:hover {
+  background-color: #0284c7;
+  color: black;
+}
+.buttons a:hover {
+  background-color: #0284c7;
+  color: black;
+}
+#video{
+    display: block;
+    margin: 0px auto;
+    width: 50%;
+    height: 420px;
+  
+}
+@media (max-width: 1024px) {
+  .card {
+    width: 100%;
+    margin: 10px;
+  }
+  .buttons {
+    gap: 40px;
+    margin-bottom: 10px;
+  }
+  .buttons > button {
+    text-align: center;
+    padding: 2px 5px;
+  }
+  .buttons > a {
+    text-align: center;
+    padding: 2px 5px;
+  }
+  button > i {
+    text-align: left;
+  }
+  .text {
+    font-size: 14px;
+  }
+}
+@media (max-width: 800px) {
+    .card-img img{
+    width: 630px;
+    height: 500px;
+    
+
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 5px;
+  }
+
+  .buttons {
+    gap: 30px;
+    margin-bottom: 5px;
+  }
+  .back {
+    font-size: 12px;
+  }
+
+  button > i {
+    text-align: left;
+  }
+  .text {
+    font-size: 12px;
+  }
+}
+@media (max-width: 600px) {
+    .card-img img{
+    width: 430px;
+    height: 300px;
+    
+
+  }
+  
+
+}
