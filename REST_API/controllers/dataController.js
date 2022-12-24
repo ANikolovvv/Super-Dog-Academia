@@ -13,6 +13,15 @@ router.get("/", async (req, res) => {
     res.status(400).json({ message: "Bad request" });
   }
 });
+router.get("/blog", async (req, res) => {
+  try {
+    let data = await api.getBlogs();
+
+    res.json(data);
+  } catch (error) {
+    res.status(400).json({ message: "Bad request" });
+  }
+});
 router.post("/", async (req, res) => {
   const item = {
     name: req.body.name,
@@ -22,6 +31,22 @@ router.post("/", async (req, res) => {
   };
   try {
     let result = await api.createData(item);
+    res.status(201).json({ result });
+  } catch (error) {
+    res.status(400).json({ message: "Bad request" });
+    console.log(error);
+  }
+});
+router.post("/blog", async (req, res) => {
+  const item = {
+    name: req.body.name,
+    description: req.body.description,
+    imageUrl: req.body.imageUrl,
+    author: req.body.author,
+    date: req.body.date,
+  };
+  try {
+    let result = await api.createBlog(item);
     res.status(201).json({ result });
   } catch (error) {
     res.status(400).json({ message: "Bad request" });
@@ -62,6 +87,15 @@ router.get("/my-data/:id", async (req, res) => {
     let history = orders.orderHistory;
 
     res.json({ history: history });
+  } catch (err) {
+    res.status(400).json({ message: "Request error" });
+  }
+});
+router.get("/blog/:id", async (req, res) => {
+  try {
+    let blog = await api.getBlogId(req.params.id);
+
+    res.json(blog);
   } catch (err) {
     res.status(400).json({ message: "Request error" });
   }
