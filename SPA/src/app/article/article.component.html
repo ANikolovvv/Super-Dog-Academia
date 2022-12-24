@@ -1,0 +1,43 @@
+<main>
+  <h1 id="title">Article</h1>
+
+  <section class="course">
+    <div class="error" *ngIf="errors">Error loading blog!</div>
+
+    <div *ngIf="loading">
+      <app-loader></app-loader>
+    </div>
+
+    <article *ngIf="!loading">
+      <div class="card">
+        <div class="card-img">
+          <img src="{{ info.imageUrl }}" alt="blog" />
+        </div>
+        <article class="desc">
+          <h1 *ngIf="info.name?.length > 0">Title:{{ info.name }}</h1>
+          <p class="text">Description:{{ info.description }}</p>
+          <iframe
+          loading="lazy"
+          id="video"
+          data-origwidth="580"
+          data-origheight="326"
+          data-relstop="1"
+          src="https://www.youtube.com/embed/pGPLSkLl1gY?enablejsapi=1&amp;autoplay=0&amp;cc_load_policy=0&amp;cc_lang_pref=&amp;iv_load_policy=1&amp;loop=0&amp;modestbranding=0&amp;rel=0&amp;fs=1&amp;playsinline=0&amp;autohide=2&amp;theme=dark&amp;color=red&amp;controls=1&amp;"
+          class="__youtube_prefs__ __youtube_prefs_widget__ no-lazyload"
+          title="The dog's rear end: it's role in activities"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen=""
+          data-no-lazy="1"
+          data-skipgform_ajax_framebjll=""
+        ></iframe>
+          <div class="buttons">
+            <a class="back" routerLink="/courses" type="submit"
+              ><i class="fa-solid fa-arrow-left"></i> Back</a
+            >
+          </div>
+        </article>
+      </div>
+    </article>
+  </section>
+  <app-button-up></app-button-up>
+</main>
