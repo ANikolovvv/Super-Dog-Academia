@@ -1,0 +1,168 @@
+body {
+  scroll-behavior: smooth;
+}
+#title {
+  text-align: center;
+  padding-top: 20px;
+}
+.course article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-color: #0284c7;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+  width: 70%;
+  height: 62vh;
+  margin: 0px 0px 20px 20px;
+}
+.card-img {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+  position: relative;
+}
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 1px;
+}
+.card .desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 5px;
+  width: 100%;
+}
+.desc .text {
+  padding: 0px 0px 10px 10px;
+  text-align: left;
+}
+h2,
+h3 {
+  color: #0284c7;
+  font-weight: bolder;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}
+.sign {
+  text-decoration: none;
+  padding: 5px 15px;
+  background-color: white;
+  border: solid 2px #0284c7;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+  font-size: 16px;
+  color: #0284c7;
+  letter-spacing: 1px;
+  font-weight: bolder;
+}
+.sign:hover {
+  background-color: #0284c7;
+  color: black;
+}
+@media (max-width: 1024px) {
+    main {
+      padding: 0px;
+    }
+    .course {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin: 0;
+    }
+    .course article {
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+    }
+    .card {
+      justify-content: center;
+      text-align: center;
+      margin: 0 auto;
+    }
+    h2 {
+      font-size: 14px;
+    }
+    .text {
+      margin: 0;
+      font-weight: bolder;
+      font-size: 14px;
+    }
+    ul {
+      margin: 0;
+    }
+    li {
+      font-size: 12px;
+    }
+    .sign {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .desc {
+      margin: 0;
+      padding: 0;
+    }
+    .desc > h1 {
+      margin: 0;
+      padding: 0;
+    }
+  }
+  @media (max-width: 800px) {
+    .card-img img {
+      width: 100%;
+      height:80% ;
+    
+      }
+    h2 {
+      font-size: 12px;
+    }
+    .text {
+      margin: 0;
+      font-weight: bolder;
+      font-size: 12px;
+    }
+   
+    li {
+      font-size: 12px;
+    }
+    .sign {
+      margin-top: 10px;
+      font-size: 12px;
+    }
+    .desc {
+      margin: 0;
+      padding: 10px;
+    }
+    .desc > h1 {
+      margin: 0;
+      padding: 0;
+    }
+  }
+  @media (max-width: 600px) {
+    .card{
+      width: 95%;
+    }
+    .sign {
+      margin-top: 10px;
+      font-size: 10px;
+    }
+  }
+  
