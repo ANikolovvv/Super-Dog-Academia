@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { ICoaches } from './interfaces/coaches';
 import { ICourses } from './interfaces/courses';
 import { IOrder } from './interfaces/course';
+import { IBlog } from './interfaces/blog';
 
 
 const url = environment.url;
@@ -23,6 +24,12 @@ export class apiServer {
     }
     getCourse(id:string){
         return this.httpClient.get<IOrder[]>(`${url}/trainer/course/${id}`)
+    }
+    getBlogs(){
+        return this.httpClient.get<IBlog[]>(`${url}/trainer/blog`)
+    }
+    getBlogId(id:string){
+        return this.httpClient.get<IBlog[]>(`${url}/trainer/blog/${id}`)
     }
    
 }
